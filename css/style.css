@@ -87,6 +87,7 @@ body {
   background-size: cover; 
   background-position: center; 
   background-repeat: no-repeat;
+  z-index: 1;
  }
  /* .background{
   background-image: 
@@ -114,4 +115,48 @@ body {
     position: absolute;
     bottom: -45px;
     z-index: -1;
+  }
+
+  .spark{
+    background-color: #9F916C;
+    position: relative;
+    z-index: -100;
+    background-image: url('../assets/streets_of_antwerp.png');
+    background-size: contain; 
+    /* background-position: bottom left;  */
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    padding-bottom: 18rem;
+    
+  }
+
+  .spark__figure{
+    position: absolute;
+    width: 8rem;
+    right: 0;
+    bottom: 0;
+  }
+
+  .spark__heading{
+    font-family: "rocky-compressed", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 3.75rem;
+    padding-top: 3.5rem;
+    color: #F2F1EE;
+  }
+
+  .spark__description{
+    line-height: 1.5;
+    color: #F2F1EE;
+    font-family: 'arial', serif;
+    margin-top: 1.5rem;
+  }
+
+  .spark__highlight{
+    color: #E0CE9E;
+  }
+
+  .spark_before{
+    padding: 2.5rem;
   }

@@ -233,3 +233,19 @@ const draw = () => {
 
 
 window.requestAnimationFrame(draw);
+
+
+
+gsap.registerPlugin(MotionPathPlugin, ScrollTrigger);
+
+gsap.to(".spark__figure", {
+  x: "-81vw",
+  scrollTrigger: {
+    trigger: ".spark",
+    start: "top 1%",
+    scrub: true,
+    // markers: true,
+    pin: true,
+    // pinSpacing: true,
+  },
+});
