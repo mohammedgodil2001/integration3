@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://use.typekit.net/hws5zbi.css">
   </head>
  
@@ -40,16 +41,30 @@
                 
 
             <main>
-                <section class="hero">
-                    <h2 class="hero__heading">
-                      The <span class="hero_heading_highlight_word">Revolution</span> <br> in Print
-                    </h2>
-                    <p class="hero__subheading">
-                      Christophe Plantin’s journey from a humble workshop to shaping the future of knowledge.
-                    </p>
-                    <button class="hero__button">Scroll to begin the story</button>
-                  </section>
 
+              <div class="background">
+                  <div class="wrapper">
+                    <header class="header">
+                      <h1 class="header__title visually-hidden">Plantin Moretus Story</h1>
+                      <img src="./assets/logo.svg" alt="Museum's Logo" class="header__logo">
+                      <img src="./assets/hamburger.svg" alt="Hamburger Menu" class="header__menu-icon">
+                    </header>
+                  </div>
+                
+                  <div class="wrapper">
+                    <section class="hero">
+                            <h2 class="hero__heading">
+                              The <span class="hero_heading_highlight_word">Revolution</span> <br> in Print
+                            </h2>
+                            <p class="hero__para">
+                              Christophe Plantin’s journey from a humble workshop to shaping the future of knowledge.
+                            </p>
+                            <button class="hero__button">Scroll to begin the story</button>
+                            <img src="./assets/alphabets.png" alt="alphabets">
+                            <img class="divider" src="./assets/divider.png" alt="divider">
+                      </section>
+                    </div>
+                </div>
             </main>
 
   </body>

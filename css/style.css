@@ -1,0 +1,117 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    /* font-family: "rocky-compressed", serif; */
+    width: 100vw;
+    height: 100vh;
+    
+  }
+
+  @font-face {
+    font-family: 'arial';
+    src: url('./font/arial.ttf') format('ttf');
+    font-weight: normal; /* Adjust as needed */
+    font-style: normal;  /* Adjust as needed */
+  }
+
+
+  .visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+
+  svg {
+    position: absolute;
+  }
+
+  .header{
+    padding-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header__logo,
+  .header__menu-icon
+  {
+    align-self: flex-start;
+  }
+ 
+  .hero{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2.5rem;
+    position: relative;
+  }
+
+
+  .hero__heading{
+    font-family: "rocky-compressed", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 3.75rem;
+    text-align: center;
+    line-height: 1.1;
+    color: #4B4239;
+  }
+
+  .hero_heading_highlight_word{
+    color: #BB5943;
+  }
+
+  .hero__para{
+    font-family: 'arial', serif;
+    font-size: 1.1rem;
+    text-align: center;
+    line-height: 1.5;
+    margin-top: 0.5rem;
+    width: 95%;
+  }
+
+  .wrapper{
+    width: 80%; 
+    margin: 0 auto;
+  }
+
+ .background{
+  background-image: 
+  url('../assets/background.png');
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat;
+ }
+ /* .background{
+  background-image: 
+  url('../assets/background.png'),
+  url('../assets/divider.png');
+  background-size: cover, auto; 
+  background-position: center, bottom; 
+  background-repeat: no-repeat, no-repeat;
+ } */
+
+  .hero__button{
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    color: #FAF0E6;
+    border: none;
+    background-color: #7C936A;
+    margin-top: 1rem;
+  }
+
+
+  .divider{
+    width: 140%;
+    margin: auto;
+    position: absolute;
+    bottom: -45px;
+    z-index: -1;
+  }
