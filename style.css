@@ -1,0 +1,24 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    /* font-family: "rocky-compressed", serif; */
+  }
+
+  svg {
+    position: absolute;
+  }
+ 
+
+  .hero__heading{
+    font-family: "rocky-compressed", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 3.75rem;
+    text-align: center;
+    line-height: 1.1;
+    color: #4B4239;
+  }
+
+  .hero_heading_highlight_word{
+    color: #BB5943;
+  }
