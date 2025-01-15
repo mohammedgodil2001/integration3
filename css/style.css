@@ -109,13 +109,15 @@ body {
   }
 
 
-  .divider{
+  .divider, .paper_dividing{
     width: 140%;
     margin: auto;
     position: absolute;
     bottom: -45px;
     z-index: -1;
   }
+
+
 
   .spark{
     background-color: #9F916C;
@@ -146,7 +148,7 @@ body {
     color: #F2F1EE;
   }
 
-  .spark__description{
+  .spark__description, .workshop__description{
     line-height: 1.5;
     color: #F2F1EE;
     font-family: 'arial', serif;
@@ -160,3 +162,164 @@ body {
   .spark_before{
     padding: 2.5rem;
   }
+
+  .card_two{
+    background-color: #9F916C;
+    position: relative;
+  }
+
+  .card__description{
+    line-height: 2;
+    font-family: 'arial', serif;
+    color: #F2F1EE;
+    padding-top: 1.5rem;
+    padding-bottom: 30rem;
+  }
+
+  .hand_giving{
+    width: 80%;
+    position: absolute;
+    top: 20rem;
+    left: -320px;
+    /* left: -50px; */
+    z-index: 2;
+  }
+  .hand_receiving{
+    width: 80%;
+    position: absolute;
+    top: 35rem;
+    right: -300px;
+    /* right: -40px; */
+  }
+
+  .book_inHand{
+    width: 50%;
+    position: absolute;
+    top: 23rem;
+    /* left: -12rem; */
+    left: 4.8rem;
+    z-index: 1;
+    opacity: 0;
+  }
+
+
+  /* .cards {
+    background-image: url(../assets/clouds.png);
+    background-size: contain;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    z-index: 110;
+    position: relative;
+} */
+
+
+  .workshop__heading{
+    font-family: "rocky-compressed", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 3.75rem;
+    color: #4B4239;
+  }
+
+.workshop__highlight_one{
+  color: #BB5943;
+}
+
+.workshop__highlight_two{
+  margin-left: 2rem;
+}
+
+.workshop{
+  padding-top: 2rem;
+  background-image: url('../assets/background.png');
+  background-size: cover; 
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-bottom: 2rem;
+  position: relative;
+}
+
+/* .workshop {
+  position: relative;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  background-image: url('../assets/clouds.png');
+  background-size: contain; 
+  background-position: 0 -4rem; 
+  background-repeat: no-repeat;
+  z-index: 1000; 
+} */
+
+.workshop__description{
+  color: #4B4239;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.workshop__try-it{
+  font-weight: bold; 
+}
+
+.printed_paper_section{
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.container img{
+  width: 9rem;
+}
+
+
+
+.printed_paper_section{
+  position: relative;
+}
+
+.stamping img{
+  width: 10rem;
+}
+
+
+@keyframes moveUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-30px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(30px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.reset-button{
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  color: #FAF0E6;
+  border: none;
+  background-color: #7C936A;
+  margin: 1.5rem auto 0 auto;
+  display: none;
+}
+
+
+.clouds{
+  width: 150%;
+  position: absolute;
+  margin: 0 auto;
+  top: -6rem;
+  right: -10rem;
+}

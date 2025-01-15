@@ -230,11 +230,7 @@ const draw = () => {
 // // Adjust scaling on window resize
 // window.addEventListener("resize", resizeSVGsForMobile);
 
-
-
-window.requestAnimationFrame(draw);
-
-
+// window.requestAnimationFrame(draw);
 
 gsap.registerPlugin(MotionPathPlugin, ScrollTrigger);
 
@@ -242,10 +238,106 @@ gsap.to(".spark__figure", {
   x: "-81vw",
   scrollTrigger: {
     trigger: ".spark",
-    start: "top 1%",
+    start: "top 40%",
+    // end: "+=80%",
     scrub: true,
     // markers: true,
-    pin: true,
-    // pinSpacing: true,
+    // pin: true,
+    // pinSpacing: false,
   },
+});
+
+const book_handing = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".card_two",
+    start: "top 1%",
+    // end: "+=80%",
+    scrub: true,
+    // pin: true,
+    // markers: true,
+  },
+});
+
+book_handing.to(".hand_giving", {
+  x: "15.5rem",
+  ease: "power2.out",
+  duration: 1,
+});
+
+book_handing.to(".book_inHand", {
+  opacity: 1,
+  ease: "power2.out",
+  duration: 1,
+});
+
+book_handing.to(".hand_receiving", {
+  x: "-18rem",
+  ease: "power2.out",
+  duration: 1,
+});
+
+book_handing.to(".book_inHand", {
+  y: "6rem",
+  ease: "power2.out",
+  duration: 1,
+});
+
+gsap.utils.toArray(".panel").forEach((panel, i) => {
+  ScrollTrigger.create({
+    trigger: panel,
+    start: "top top",
+    // end: "bottom+=100%",
+    end: "bottom+=100%",
+    // end: "+=100%",
+    pin: true,
+    // pinSpacing: false,
+    pinSpacing: i === gsap.utils.toArray(".panel").length - 1 ? true : false,
+    // markers: true,
+  });
+});
+
+const draggable = document.querySelectorAll(".draggable");
+
+const stamp = document.querySelector(".stamp");
+let normal_paper = document.querySelector(".normal_paper");
+const paper = document.querySelector(".normal_paper");
+let printed_paper_section = document.querySelector(".printed_paper_section");
+let resetButton = document.querySelector(".reset-button");
+
+stamp.addEventListener("touchmove", (e) => {
+  e.preventDefault();
+  stamp.style.position = "absolute";
+  stamp.style.left = "4.5rem";
+  stamp.style.top = "2rem";
+});
+
+stamp.addEventListener("touchend", () => {
+  animateStampOnPaper();
+});
+
+function animateStampOnPaper() {
+  stamp.style.animation = "moveUpDown 2s ease-in-out";
+
+  setTimeout(() => {
+    stamp.style.display = "none";
+    normal_paper.src = "./assets/printed_paper.png";
+    normal_paper.style.transform = "scale(1.2)";
+    printed_paper_section.style.paddingBottom = "2rem";
+    normal_paper.style.paddingTop = "1.5rem";
+    resetButton.style.display = "block";
+  }, 1500);
+}
+
+resetButton.addEventListener("click", () => {
+  stamp.style.display = "block";
+  stamp.style.position = "";
+  stamp.style.left = "";
+  stamp.style.top = "";
+  stamp.style.animation = "";
+  resetButton.style.display = "none";
+
+  normal_paper.src = "./assets/normal_paper.png";
+  normal_paper.style.transform = "";
+  printed_paper_section.style.paddingBottom = "";
+  normal_paper.style.paddingTop = "";
 });
