@@ -341,3 +341,45 @@ resetButton.addEventListener("click", () => {
   printed_paper_section.style.paddingBottom = "";
   normal_paper.style.paddingTop = "";
 });
+
+const dragArea = document.querySelector(".drag-area");
+const dropZones = document.querySelectorAll(".drop-zone");
+
+// Prevent default behavior on touchmove
+const draggables = document.querySelectorAll(".draggable");
+
+draggables.forEach((draggable) => {
+  draggable.addEventListener("touchmove", (e) => {
+    e.preventDefault(); // Prevents scrolling or other default actions
+  });
+});
+
+// Initialize Dragula
+const drake = dragula([dragArea, ...dropZones], {
+  revertOnSpill: true, // Revert if dropped outside any container
+});
+
+// Handle drop event
+drake.on("drop", (el, target, source, sibling) => {
+  // If dropped outside a drop zone, do nothing
+  if (!target || !target.classList.contains("drop-zone")) {
+    return;
+  }
+
+  // Get the match values
+  const matchValue = target.dataset.match;
+  const draggedMatchValue = el.dataset.match;
+
+  // Check if the match is correct
+  if (matchValue === draggedMatchValue) {
+    el.classList.add("matched_item");
+    target.appendChild(el); // Place the element in the drop zone
+    target.classList.add("correct");
+    setTimeout(() => target.classList.remove("correct"), 1000);
+  } else {
+    // Revert the element to its original container
+    source.appendChild(el);
+    target.classList.add("incorrect");
+    setTimeout(() => target.classList.remove("incorrect"), 1000);
+  }
+});
