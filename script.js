@@ -18,7 +18,7 @@ var engine = Engine.create(),
 engine.gravity.y = 1;
 
 var render = Render.create({
-  element: document.body,
+  // element: document.body,
   engine: engine,
   options: {
     background: "none",
@@ -383,3 +383,270 @@ drake.on("drop", (el, target, source, sibling) => {
     setTimeout(() => target.classList.remove("incorrect"), 1000);
   }
 });
+
+// const pathLength = document.querySelector("#path").getTotalLength();
+
+// let path = document.querySelector("#path");
+// gsap.set(path, { strokeDasharray: pathLength });
+
+// gsap.fromTo(
+//   path,
+//   {
+//     strokeDashoffset: 0,
+//   },
+//   {
+//     strokeDashoffset: pathLength,
+//     scrollTrigger: {
+//       trigger: ".timeline__svg-container",
+//       start: "top top",
+//       end: "bottom bottom",
+//       markers: true,
+//     },
+//   }
+// );
+
+// const path = document.querySelector("#path");
+// const pathLength = path.getTotalLength();
+
+// gsap.set(path, { strokeDasharray: pathLength, strokeDashoffset: pathLength });
+
+// gsap.to(path, {
+//   strokeDashoffset: 0,
+//   scrollTrigger: {
+//     trigger: ".timeline",
+//     start: "top top",
+//     // end: "bottom bottom",
+//     scrub: true,
+//     markers: true,
+//     pin: true,
+//   },
+//   ease: "none",
+//   duration: 10,
+// });
+
+// gsap.to(".open_book", {
+//   scrollTrigger: {
+//     trigger: ".timeline",
+//     start: "top top",
+//     end: `+=${pathLength}px`,
+//     // end: '+=300vh'
+//     // pin: "#path",
+//     // pin: true,
+//     scrub: true,
+//     markers: true,
+//   },
+//   // duration: 10,
+//   ease: "none",
+//   motionPath: {
+//     path: "#path",
+//     align: "#path",
+//     alignOrigin: [0.5, 0],
+//   },
+// });
+
+// const timelineItems = document.querySelectorAll(".timeline__item");
+
+// timelineItems.forEach((item) => {
+//   const text = item.querySelector(".timeline__content");
+//   const image = item.querySelector(".timeline__media");
+//   const dataElement = item.querySelector(".data");
+
+//   if (dataElement) {
+//     gsap.fromTo(
+//       dataElement,
+//       { textContent: 0 },
+//       {
+//         textContent: 25000,
+//         duration: 4,
+//         ease: "power1.inOut",
+//         snap: { textContent: 1 },
+//         scrollTrigger: {
+//           trigger: item,
+//           start: "top 80%",
+//           end: "bottom 60%",
+//           toggleActions: "play none play restart",
+//           // scrub: true,
+//           // markers: true,
+//         },
+//         onUpdate: function () {
+//           dataElement.textContent = Math.floor(
+//             dataElement.textContent
+//           ).toLocaleString();
+//         },
+//       }
+//     );
+//   }
+
+//   // Standard animation for text
+//   gsap.fromTo(
+//     text,
+//     {
+//       opacity: 0,
+//       y: "2rem",
+//     },
+//     {
+//       scrollTrigger: {
+//         trigger: item,
+//         start: "top 80%",
+//         end: "bottom 60%",
+//         // markers: true,
+//         scrub: true,
+//       },
+//       opacity: 1,
+//       y: "0",
+//       duration: 1,
+//     }
+//   );
+
+//   // Standard animation for images
+//   gsap.fromTo(
+//     image,
+//     {
+//       opacity: 0,
+//       y: "2.5rem",
+//     },
+//     {
+//       scrollTrigger: {
+//         trigger: item,
+//         start: "top 80%",
+//         end: "bottom 60%",
+//         // markers: true,
+//         scrub: true,
+//       },
+//       opacity: 1,
+//       y: "0",
+//       duration: 1,
+//       delay: 0.5, // Adjust delay as needed
+//     }
+//   );
+// });
+
+const path = document.querySelector("#path");
+const pathLength = path.getTotalLength();
+
+gsap.set(path, { strokeDasharray: pathLength, strokeDashoffset: pathLength });
+
+// Animate the path stroke with scrolling
+gsap.to(path, {
+  strokeDashoffset: 0,
+  scrollTrigger: {
+    trigger: ".timeline",
+    start: "top top",
+    end: `+=${pathLength}px`, // Match the timeline height
+    scrub: true,
+    markers: false, // Turn markers off for cleaner visuals
+  },
+  ease: "none",
+});
+
+// Animate the book along the path
+gsap.to(".open_book", {
+  scrollTrigger: {
+    trigger: ".timeline",
+    start: "top top",
+    end: `+=${pathLength}px`,
+    scrub: true,
+    markers: false,
+  },
+  ease: "none",
+  motionPath: {
+    path: "#path",
+    align: "#path",
+    alignOrigin: [0.5, 0],
+  },
+});
+
+// Animate each timeline__item
+const timelineItems = document.querySelectorAll(".timeline__item");
+
+timelineItems.forEach((item) => {
+  const text = item.querySelector(".timeline__content");
+  const image = item.querySelector(".timeline__media");
+  const dataElement = item.querySelector(".data");
+
+  if (dataElement) {
+    gsap.fromTo(
+      dataElement,
+      { textContent: 0 },
+      {
+        textContent: 25000,
+        duration: 4,
+        ease: "power1.inOut",
+        snap: { textContent: 1 },
+        scrollTrigger: {
+          trigger: item,
+          start: "top 80%",
+          end: "bottom 60%",
+          toggleActions: "play none play reverse",
+        },
+        onUpdate: function () {
+          dataElement.textContent = Math.floor(
+            dataElement.textContent
+          ).toLocaleString();
+        },
+      }
+    );
+  }
+
+  // Animate text
+  gsap.fromTo(
+    text,
+    { opacity: 0, y: "2rem" },
+    {
+      opacity: 1,
+      y: "0",
+      duration: 1,
+      scrollTrigger: {
+        trigger: item,
+        start: "top 80%",
+        end: "bottom 60%",
+        scrub: true,
+      },
+    }
+  );
+
+  // Animate image
+  gsap.fromTo(
+    image,
+    { opacity: 0, y: "2.5rem" },
+    {
+      opacity: 1,
+      y: "0",
+      duration: 1,
+      scrollTrigger: {
+        trigger: item,
+        start: "top 80%",
+        end: "bottom 60%",
+        scrub: true,
+      },
+    }
+  );
+});
+
+$(".flipbook").turn();
+
+const arialingDiv = document.querySelector(".arialing");
+const garamondDiv = document.querySelector(".garamond");
+let feedback_for_font = document.querySelector(".feedback_for_font");
+
+if (arialingDiv) {
+  arialingDiv.addEventListener("click", () => {
+    feedback_for_font.textContent =
+      "You chose Arial! 67% of users prefer this modern typeface for its clean look.";
+  });
+}
+
+if (garamondDiv) {
+  garamondDiv.addEventListener("click", () => {
+    feedback_for_font.textContent =
+      "You chose Garamond! 33% of users also prefer this elegant typeface for its timeless design.";
+  });
+}
+
+// const pageFlip = new St.PageFlip(document.getElementById("example"), {
+//   width: 400,
+//   height: 600,
+//   autoSize: true,
+// });
+
+// pageFlip.loadFromHTML(document.querySelectorAll(".page"));
