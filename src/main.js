@@ -673,3 +673,34 @@ timelineItems.forEach((item) => {
 // });
 
 // pageFlip.loadFromHTML(document.querySelectorAll(".page"));
+
+// gsap.to(".section-plantin__image--two", {
+//   // y: "20rem",
+//   top: "20rem",
+//   rotate: -157,
+//   scrollTrigger: {
+//     trigger: ".section-plantin",
+//     start: "top top",
+//     end: "bottom top",
+//     markers: true,
+//     // scrub: true,
+//     toggleActions: "play none play play",
+//   },
+// });
+
+gsap.set(".section-plantin__image--two", {
+  rotate: -211, // Matches CSS
+});
+
+gsap.to(".section-plantin__image--two", {
+  top: "20rem",
+  rotate: -157, // Target rotation
+  scrollTrigger: {
+    trigger: ".section-plantin",
+    start: "top top",
+    end: "bottom top",
+    // markers: true,
+    // scrub: true, // Sync animation with scroll
+    toggleActions: "play none reverse restart",
+  },
+});
