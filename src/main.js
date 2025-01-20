@@ -751,6 +751,17 @@ gsap.to(".horizontal-scroll__image--moretus", {
   },
 });
 
+gsap.to(".museum-visit__image-file", {
+  x: "0",
+  scrollTrigger: {
+    trigger: ".museum-visit",
+    start: "top top",
+    toggleActions: "play none reverse restart",
+    // scrub: true,
+    // markers: true,
+  },
+});
+
 // let flipbook1 = document.querySelector("#flipbook1");
 // let options1 = {
 //   width: 400,

@@ -141,11 +141,20 @@ body {
     transform: rotate(180deg);
   }
 
-  .divider_5{
+  .divider_5, .divider_6, .divider_7{
     width: 100%;
     position: absolute;
     z-index: 1;
     transform: translateY(-3rem);
+  }
+
+  .divider_7{
+    transform: translateY(3rem);
+    rotate: 180deg;
+  }
+
+  .divider_6{
+    z-index: -1;
   }
 
   .paper_dividing{
@@ -774,7 +783,7 @@ border: 1px solid black;
   /* height: 100rem; */
 }
 
-.section-plantin__heading, .section-book__title, .horizontal-scroll__title, .legacy-section__title{
+.section-plantin__heading, .section-book__title, .horizontal-scroll__title, .legacy-section__title, .museum-visit__info-title{
   font-family: "rocky-compressed", serif;
   font-weight: 500;
   font-style: normal;
@@ -782,6 +791,9 @@ border: 1px solid black;
   line-height: 1.1;
   color: #4B4239;
 }
+
+
+
 
 .legacy-section__title{
   font-size: 3.3rem;
@@ -864,7 +876,7 @@ rotate: -211deg; */
   margin: 3rem auto auto auto ;
 }
 
-.section-plantin__description ,  .section-book__description, .horizontal-scroll__description, .legacy-section__description{
+.section-plantin__description ,  .section-book__description, .horizontal-scroll__description, .legacy-section__description , .museum-visit__info-description{
   line-height: 1.5;
   color: #4B4239;
   font-family: 'arial', serif;
@@ -878,8 +890,12 @@ rotate: -211deg; */
   /* margin-top: 8rem; */
 }
 
-.section-book__description, .legacy-section__description{
+.section-book__description, .legacy-section__description, .museum-visit__info-description{
   margin-left: 0;
+}
+
+.museum-visit__info-description{
+  color: #F2F1EE;
 }
 
 .section-book{
@@ -940,12 +956,13 @@ rotate: -211deg; */
 }
 
 .legacy-section{
-  padding-top: 7rem;
-  background-image: 
-  url('../assets/background.png');
-  background-size: cover; 
-  background-position: center; 
-  background-repeat: no-repeat;
+  padding-top: 2rem;
+    background-image: url(/src/assets/background.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 10;
+    position: relative;
 }
 
 .candle_images{
@@ -953,8 +970,9 @@ rotate: -211deg; */
 }
 
 .legacy-section__image{
-  /* width: 100%; */
+  width: 100%;
   max-width: 10rem;
+  margin-left: auto;
 }
 
 .graramond_arial_cards{
@@ -1126,13 +1144,12 @@ rotate: -211deg; */
 }
 
 /* Controller Buttons */
-button {
+/* button {
   border: none;
   background-color: transparent;
   cursor: pointer;
-  margin: 10px;
   transition: transform 0.5s;
-}
+} */
 
 
 
@@ -1173,4 +1190,98 @@ button {
     color: #4B4239;
     border: none;
     background-color: #E0CE9E;
+}
+
+
+.museum-visit{
+  padding-top: 3em;
+}
+
+.museum-visit__info-title--highlight{
+  color: #E0CE9E;
+}
+
+.museum-visit__info-title{
+  color: #F2F1EE;
+  font-size: 3.4rem;
+}
+
+.museum-visit__info-button{
+  background-color: #2F2B27;
+  color: #FAF0E6;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 0.5em;
+  margin-top: 1.2em;
+  border: none;
+}
+
+.museum-visit{
+  background-color: #9F916C;
+}
+
+.museum-visit__image-file{
+  width: 100%;
+  transform: translateX(-24rem);
+}
+
+.footer{
+  background-image: 
+  url('../assets/background.png');
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat;
+  padding-top: 1em;
+  z-index: 100;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1em;
+}
+
+.footer__newsletter{
+  opacity: 0;
+}
+
+.contact-info__phone, .contact-info__email{
+  display: none;
+}
+
+.contact-info{
+  font-family: 'arial', serif;
+  line-height: 1.5;
+}
+
+.logo_footer{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: end;
+  /* border: 1px solid; */
+}
+
+
+.social__link img{
+  width: 100%;
+  max-width: 1.5rem;
+}
+
+.address_footer{
+  max-width: 60%;
+}
+
+.footer__logo{
+  width: 100%;
+  max-width: 4rem;
+}
+
+.social{
+  margin-top: 1em;
+}
+
+.social__title{
+  font-family: "rocky-compressed", serif;
+  font-size: 1.8rem;
+    color: #BB5B45;
 }
