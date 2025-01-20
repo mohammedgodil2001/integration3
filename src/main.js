@@ -351,7 +351,7 @@ resetButton.addEventListener("click", () => {
   stamp.style.animation = "";
   resetButton.style.display = "none";
 
-  normal_paper.src = "./assets/normal_paper.png";
+  normal_paper.src = "./src/assets/normal_paper.png";
   normal_paper.style.transform = "";
   printed_paper_section.style.paddingBottom = "";
   normal_paper.style.paddingTop = "";
@@ -704,3 +704,176 @@ gsap.to(".section-plantin__image--two", {
     toggleActions: "play none reverse restart",
   },
 });
+
+gsap.fromTo(
+  ".section-book__image--hand-one",
+  { x: "-10vw" }, // Start off-screen to the left
+  {
+    x: "2rem",
+    // duration: 1,
+    scrollTrigger: {
+      trigger: ".section-book",
+      start: "top top",
+      end: "+=1000",
+      toggleActions: "play none reverse restart",
+      // end: "top 50%",
+      scrub: true,
+      // pin: true,
+    },
+  }
+);
+
+gsap.fromTo(
+  ".section-book__image--hand-two",
+  { x: "10vw" },
+  {
+    x: "-2rem",
+    scrollTrigger: {
+      trigger: ".section-book",
+      start: "top top",
+      end: "+=1000",
+      toggleActions: "play none reverse restart",
+      // end: "top 50%",
+      scrub: true,
+      // pin: true,
+    },
+  }
+);
+
+gsap.to(".horizontal-scroll__image--moretus", {
+  x: "0rem",
+  scrollTrigger: {
+    trigger: ".horizontal-scroll__content",
+    start: "top top",
+    toggleActions: "play none reverse restart",
+    // scrub: true,
+    markers: true,
+  },
+});
+
+// let flipbook1 = document.querySelector("#flipbook1");
+// let options1 = {
+//   width: 400,
+//   height: 400,
+//   size: "stretch",
+//   startPage: 0,
+//   showCover: true,
+//   useMouseEvents: true,
+//   maxShadowOpacity: 0.5,
+//   flippingTime: 1000,
+// };
+// const pageFlip1 = new St.PageFlip(flipbook1, options1);
+
+// let pages = document.querySelectorAll(".page");
+// pageFlip1.loadFromHTML(pages);
+
+const arialingDiv = document.querySelector(".arialing");
+const garamondDiv = document.querySelector(".garamond");
+let feedback_for_font = document.querySelector(".feedback_for_font");
+
+if (arialingDiv) {
+}
+arialingDiv.addEventListener("click", (event) => {
+  arialingDiv.classList.add("arial_div_click_color");
+  garamondDiv.classList.remove("arial_div_click_color");
+  event.stopPropagation(); // Prevent page flip
+  feedback_for_font.textContent =
+    "You chose Arial! 67% of users prefer this modern typeface for its clean look.";
+});
+
+if (garamondDiv) {
+  garamondDiv.addEventListener("click", (event) => {
+    arialingDiv.classList.remove("arial_div_click_color");
+    garamondDiv.classList.add("arial_div_click_color");
+    event.stopPropagation(); // Prevent page flip
+    feedback_for_font.textContent =
+      "You chose Garamond! 33% of users also prefer this elegant typeface for its timeless design.";
+  });
+}
+
+// flipbook1.addEventListener("click", (event) => {
+//   if (pageFlip1.getCurrentPageIndex() === 0) {
+//     pageFlip1.flipNext();
+//   }
+// });
+
+const prevBtn = document.querySelector("#prev-btn");
+const nextBtn = document.querySelector("#next-btn");
+const book = document.querySelector("#book");
+
+const paper1 = document.querySelector("#p1");
+const paper2 = document.querySelector("#p2");
+const paper3 = document.querySelector("#p3");
+
+// Event Listener
+prevBtn.addEventListener("click", goPrevPage);
+nextBtn.addEventListener("click", goNextPage);
+
+// Business Logic
+let currentLocation = 1;
+let numOfPapers = 2;
+let maxLocation = numOfPapers;
+
+function openBook() {
+  book.style.transform = "translateX(50%)";
+}
+
+function closeBook(isAtBeginning) {
+  if (isAtBeginning) {
+    book.style.transform = "translateX(50%)";
+  } else {
+    book.style.transform = "translateX(100%)";
+  }
+
+  prevBtn.style.transform = "translateX(0)";
+  nextBtn.style.transform = "translateX(0)";
+}
+
+function goNextPage() {
+  if (currentLocation < maxLocation) {
+    switch (currentLocation) {
+      case 1:
+        openBook();
+        paper1.classList.add("flipped");
+        paper1.style.zIndex = 1;
+        break;
+      case 2:
+        paper2.classList.add("flipped");
+        paper2.style.zIndex = 2;
+        break;
+      case 3:
+        paper3.classList.add("flipped");
+        paper3.style.zIndex = 3;
+        closeBook(false);
+        break;
+      default:
+        throw new Error("unkown state");
+    }
+    currentLocation++;
+  }
+}
+
+function goPrevPage() {
+  if (currentLocation > 1) {
+    switch (currentLocation) {
+      case 2:
+        closeBook(true);
+        paper1.classList.remove("flipped");
+        paper1.style.zIndex = 3;
+        break;
+      case 3:
+        paper2.classList.remove("flipped");
+        paper2.style.zIndex = 2;
+        break;
+      case 4:
+        openBook();
+        paper3.classList.remove("flipped");
+        paper3.style.zIndex = 1;
+        break;
+      default:
+        throw new Error("unkown state");
+    }
+
+    currentLocation--;
+  }
+}
