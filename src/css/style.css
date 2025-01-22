@@ -74,7 +74,7 @@ body {
     color: #4B4239;
   }
 
-  .hero_heading_highlight_word{
+  .hero_heading_highlight_word , .legacy-section__highlight{
     color: #BB5943;
   }
 
@@ -85,6 +85,7 @@ body {
     line-height: 1.5;
     margin-top: 0.5rem;
     width: 95%;
+    max-width: 30ch;
   }
 
   .wrapper{
@@ -211,11 +212,9 @@ body {
     z-index: -100;
     background-image: url('../assets/streets_of_antwerp.png');
     background-size: contain; 
-    /* background-position: bottom left;  */
     background-position: center bottom;
     background-repeat: no-repeat;
     padding-bottom: 18rem;
-    
   }
 
   .spark__figure{
@@ -239,8 +238,12 @@ body {
     color: #F2F1EE;
     font-family: 'arial', serif;
     margin-top: 1.5rem;
+    max-width: 60ch;
+    font-size: 1.1rem;
+    line-height: 1.6;
   }
 
+  
   .spark__highlight{
     color: #E0CE9E;
   }
@@ -255,37 +258,39 @@ body {
   }
 
   .card__description{
-    line-height: 2;
+    line-height: 1.6;
     font-family: 'arial', serif;
     color: #F2F1EE;
     padding-top: 1.5rem;
     padding-bottom: 30rem;
+    max-width: 60ch;
+    font-size: 1.1rem;
   }
 
   .hand_giving{
-    width: 80%;
+    width: 100%;
     position: absolute;
     top: 20rem;
-    left: -320px;
-    /* left: -50px; */
+    left: -20rem;
     z-index: 2;
+    max-width: 18rem;
   }
   .hand_receiving{
-    width: 80%;
+    width: 100%;
     position: absolute;
     top: 35rem;
-    right: -300px;
-    /* right: -40px; */
+    right: -18rem;
+    max-width: 18rem;
   }
 
   .book_inHand{
-    width: 50%;
+    width: 100%;
     position: absolute;
     top: 23rem;
-    /* left: -12rem; */
     left: 4.8rem;
     z-index: 1;
     opacity: 0;
+    max-width: 11.5rem;
   }
 
 
@@ -313,6 +318,11 @@ body {
 
 .workshop__highlight_two{
   margin-left: 5rem;
+}
+
+.workshop_container{
+  display: flex;
+  flex-direction: column;
 }
 
 .workshop{
@@ -359,7 +369,9 @@ body {
 
 
 .container img{
-  width: 9rem;
+  /* width: 9rem; */
+  width: 100%;
+    max-width: 9rem;
 }
 
 
@@ -369,7 +381,9 @@ body {
 }
 
 .stamping img{
-  width: 10rem;
+  /* width: 10rem; */
+  width: 100%;
+    max-width: 10rem;
 }
 
 
@@ -511,6 +525,7 @@ body {
     margin-top: 1.5rem;
     z-index: 1;
     position: relative;
+    max-width: 60ch;
 }
 
 .timeline{
@@ -537,16 +552,19 @@ body {
     scale: 0.6;
 } */
 .timeline__svg-container {
-  /* display: grid;
-  grid-template-columns: 1fr; 
-  
-  justify-items: start; 
-  align-items: start; 
-  position: relative;  */
   display: flex;
   flex-direction: column;
   align-items: start; /* Align items to the left */
   position: relative;
+}
+
+/* .timeline__svg {
+  width: 100%; 
+  height: auto; 
+} */
+
+.open_book{
+  scale: 0.8 !important;
 }
 
 /* .open_book {
@@ -556,13 +574,13 @@ body {
     top: -2.5rem;
 } */
 
-.open_book {
-  scale: 0.8 !important; /* Adjust book size */
-  position: absolute; /* Position the book relative to the .timeline__svg-container */
-  left: -3.8rem; 
-  top: -1.5rem; /* Start at the top of the container */
-  transform: translateX(-50%); /* Center the book horizontally without interrupting motion path */
-}
+/* .open_book {
+  scale: 0.8 ; 
+  position: absolute; 
+  left: -3.2rem !important; 
+  top: -1.5rem; 
+  transform: translateX(-50%); 
+} */
 
 .timeline__date{
   font-family: "rocky-compressed", serif;
@@ -579,8 +597,8 @@ body {
 
 .data{
   position: absolute;
-    top: 2rem;
-    left: 3rem;
+    top: 3rem;
+    left: 3.5rem;
     font-family: "rocky-compressed", serif;
     font-size: 2.9rem;
     color: #BB5B45;
@@ -588,7 +606,7 @@ body {
 
 .book_text{
   position: absolute;
-    top: 2rem;
+    top: 3rem;
     right: 3rem;
     font-family: "rocky-compressed", serif;
     font-size: 2.9rem;
@@ -606,6 +624,7 @@ body {
     font-family: 'arial', serif;
     margin-top: 0.8rem;
     font-size: 1rem;
+    max-width: 60ch;
 }
 
 .timeline__image{
@@ -633,9 +652,10 @@ body {
 }
 
 .timeline__media{
-  /* opacity: 0;  */
   transform: translateY(2.5rem); 
-  /* transition: opacity 0.3s ease, transform 0.3s ease;  */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
@@ -724,6 +744,7 @@ border: 1px solid black;
   padding-top: 3rem;
   position: relative;
   padding-bottom: 6rem;
+  z-index: 100;
 }
 
 .craftsmen__clouds{
@@ -761,6 +782,7 @@ border: 1px solid black;
   font-family: 'arial', serif;
   margin-top: 0.8rem;
   font-size: 1rem;
+  max-width: 60ch;
 }
 
 /* .section_maining{
@@ -882,6 +904,7 @@ rotate: -211deg; */
   font-family: 'arial', serif;
   margin-top: 1.5rem;
   margin-left: 5rem;
+  max-width: 60ch;
 }
 
 .horizontal-scroll__description{
@@ -946,6 +969,7 @@ rotate: -211deg; */
 
 .horizontal-scroll__image--moretus{
   width: 100%;
+  max-width: 23rem;
   margin-left: 8rem;
   margin-top: 1rem;
   transform: translateX(15rem);
@@ -989,6 +1013,7 @@ rotate: -211deg; */
   line-height: 1.2;
   font-family: 'arial', serif;
   margin-top: 0.5em;
+  color: #4B4239;
 }
 
 .garamond{
@@ -997,15 +1022,21 @@ rotate: -211deg; */
   font-style: normal;
   padding: 0.5em ;
   cursor: pointer;
-  font-size: clamp(1rem, 2vw, 2rem);
+  /* font-size: clamp(1rem, 2vw, 2rem); */
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
   
 }
 
 .arialing{
   font-family: 'arial', serif;
-  padding: 0.5em ;
+  /* padding: 0.5em ; */
   cursor: pointer;
-  font-size: clamp(1rem, 2vw, 2rem);
+  /* font-size: clamp(1rem, 2vw, 2rem); */
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
   
 }
 
@@ -1061,18 +1092,16 @@ rotate: -211deg; */
 
 .book {
   position: relative;
-    width: 90%;
-    height: 13rem;
-    transition: transform 0.5s;
-    margin: auto;
-    margin-top: 3rem;
-    transform: translateX(50%);
+  width: 90%;
+  height: 13rem;
+  margin: auto;
+  margin-top: 3rem;
+  transform: translateX(50%);
 }
 
 .paper {
   position: absolute;
   width: 50%;
-  /* width: 100%; */
   height: 100%;
   top: 0;
   left: 0;
@@ -1179,8 +1208,9 @@ rotate: -211deg; */
 }
 
 .arial_div_click_color{
-  background-color: #4B4239;
+  background-color: #BB5B45;
   color: #F2F1EE;
+  border: none;
 }
 
 #prev-btn, #next-btn{
@@ -1284,4 +1314,437 @@ rotate: -211deg; */
   font-family: "rocky-compressed", serif;
   font-size: 1.8rem;
     color: #BB5B45;
+}
+
+
+/* ------------- */
+
+@media  (min-width : 31rem) {
+  .hand_giving, .hand_receiving{
+    max-width: 27rem;
+  }
+
+  .hand_giving{
+    top: 19rem;
+  }
+
+  .hand_receiving{
+    max-width: 28rem;
+    top: 33rem;
+    right: -29rem;
+  }
+
+  .book_inHand{
+    left: 9rem;
+    max-width: 14.5rem;
+    top: 23rem;
+  }
+
+  .card_two{
+    height: 51rem !important;
+    max-height: 100vh !important;
+  }
+  .clouds {
+    top: -9rem;
+}
+
+.match-tools__highlight {
+  margin-left: 0;
+}
+
+.data {
+  top: 4rem;
+  left: 5.5rem;
+}
+
+
+.book_text {
+    position: absolute;
+    top: 4rem;
+    right: 6rem;
+}
+
+.section-book__image {
+  max-width: 22rem;
+}
+
+.horizontal-scroll__highlight_two {
+  margin-left: 0;
+}
+
+.horizontal-scroll__highlight_one {
+  margin-left: 0;
+}
+
+.horizontal-scroll__content {
+  padding-top: 4rem;
+}
+
+}
+
+@media  (min-width : 31rem) {
+  .hand_receiving{
+    right: -23rem;
+  }
+}
+
+@media  (min-width : 44rem) {
+  .hand_receiving{
+    max-width: 30rem;
+    right: -19rem;
+  }
+}
+
+@media  (min-width : 45rem) {
+  .hero__para, .card__description, .spark__description, .workshop__description , .match-tools__description, .timeline__description , .craftsmen__description , .section-plantin__description , .section-book__description, .horizontal-scroll__content,
+  .legacy-section__description, .museum-visit__info-description
+  {
+    font-size: 1.25rem;
+  }
+
+  .hand_giving, .hand_receiving{
+    max-width: 27rem;
+  }
+
+  .hand_giving{
+    top: 19rem;
+  }
+
+  .hand_receiving{
+    max-width: 31rem;
+    top: 33rem;
+  }
+
+  .book_inHand{
+    left: 15rem;
+    max-width: 14.5rem;
+    top: 23rem;
+  }
+
+  .card_two{
+    height: 51rem !important;
+    max-height: 100vh !important;
+  }
+
+  .clouds{
+    top: -11rem;
+    right: -18rem;
+  }
+
+  .hero__heading, .spark__heading , .workshop__heading, .match-tools__heading , .craftsmen__title, .section-book__title, .horizontal-scroll__title, .legacy-section__title,
+  .museum-visit__info-title {
+    font-size: 4.75rem;
+  }
+
+  .workshop {
+    padding-top: 8rem;
+  }
+
+  .paper_dividing {
+    bottom: -4rem;
+}
+
+.container img{
+  max-width: 12rem;
+}
+.stamping img{
+  max-width: 14rem;
+}
+
+.printed_paper_section{
+  margin-top: 4rem;
+}
+
+.match-tools__highlight {
+  margin-left: 8.5rem;
+}
+
+.match-tools__heading {
+  padding-top: 6.5rem;
+}
+
+.game-container {
+  padding-bottom: 4rem;
+  padding-top: 3rem;
+}
+
+.draggable {
+  max-width: 8rem;
+}
+
+.draggable:last-child {
+  max-width: 6.5rem;
+}
+
+.drop-zone img {
+  max-width: 11rem;
+}
+
+.drop-area {
+    gap: 4.5rem;
+}
+
+.drop-zone span {
+    font-size: 1.25rem;
+}
+
+.timeline__date {
+  font-size: 3.5rem;
+}
+
+.data {
+  top: 5rem;
+  left: 9rem;
+  font-size: 4.9rem;
+}
+
+.book_text {
+  top: 5rem;
+  right: 10rem;
+  font-size: 4.9rem;
+}
+
+.timeline__image{
+  max-width: 70%;
+}
+
+.timeline__content {
+  transform: translateY(4rem); 
+}
+
+.craftsmen__clouds {
+  top: -12rem;
+  right: -19rem;
+}
+
+.timeline {
+  padding-bottom: 10rem;
+}
+
+.touch {
+  margin-left: 0;
+}
+
+.craftsmen {
+  padding-top: 6rem;
+}
+
+.divider_4{
+  bottom: -3rem;
+}
+
+.book{ 
+  height: 27rem;
+}
+
+.flipbook__heading {
+  font-size: 2rem;
+  /* text-align: center; */
+}
+
+.graramond_arial_cards{
+  flex-direction: row;
+}
+
+.arialing, .garamond{
+  font-size: 1.5rem;
+}
+
+.graramond_arial_cards {
+  display: flex;
+  gap: 1.5em;
+  /* justify-content: center; */
+  text-align: center;
+  margin-top: 1.5em;
+}
+
+.feedback_for_font {
+  font-size: 1.2rem;
+  margin-top: 1em;
+}
+
+.section-plantin__heading{
+  font-size: 3.9rem;
+  margin-left: 1em;
+}
+
+.section-plantin__description{
+  margin-left: 4rem;
+}
+
+.section-plantin{
+  padding-top: 4rem;
+}
+
+.section-plantin__image--one{
+  max-width: 18rem;
+  left: -8rem;
+  top: 12rem;
+}
+
+.section-plantin__image--two {
+  max-width: 14rem;
+}
+
+.section-plantin__image--collage {
+  margin-left: 7rem;
+}
+
+.section-book__title {
+  text-align: justify;
+}
+
+.section-book__image {
+  max-width: 33rem;
+}
+
+.divider_5 {
+  transform: translateY(-5rem);
+}
+
+.horizontal-scroll__highlight{
+  margin-left: 1em;
+}
+
+.horizontal-scroll__highlight_two {
+  margin-left: 0;
+}
+
+.horizontal-scroll__content {
+  padding-top: 6rem;
+}
+
+.horizontal-scroll__image--moretus {
+  width: 100%;
+  max-width: 38rem;
+  margin-left: 21rem;
+  margin-top: 1rem;
+  margin-bottom: 2em;
+}
+
+.paper_dividing6{
+  bottom: -4rem;
+}
+
+.legacy-section__image {
+  max-width: 17rem;
+}
+
+.divider_6{
+
+  transform: translateY(-6rem);
+}
+
+.museum-visit__info-button {
+  padding: 1rem 1.5rem;
+  border: none;
+  font-size: 1.25rem;
+}
+
+.museum-visit__image-file {
+  max-width: 30rem;
+}
+
+.museum-visit {
+  padding-top: 6em;
+}
+
+.social__title {
+  font-size: 2.5rem;
+}
+
+.social__icon {
+  max-width: 2rem;
+}
+
+.contact-info {
+  font-size: 1.25rem;
+}
+
+.footer__logo {
+  max-width: 5rem;
+}
+
+.buttons_forBook {
+  margin-top: 4em;
+}
+
+#prev-btn, #next-btn, .reset-button {
+  font-size: 1.3rem;
+}
+
+.reset-button{
+  padding: 0.7rem 1.2rem;
+}
+
+
+
+}
+
+@media  (min-width : 53rem) {
+
+  .hand_receiving {
+    max-width: 33rem;
+    right: -18rem;
+}
+
+.book_inHand {
+  left: 17rem;
+  max-width: 15.5rem;
+}
+
+.match-tools__highlight {
+  margin-left: 13.5rem;
+}
+
+.draggable:last-child {
+  max-width: 7.5rem;
+}
+
+.draggable {
+  max-width: 9rem;
+}
+
+.data {
+  top: 5rem;
+  left: 14rem;
+}
+
+.craftsmen {
+  padding-top: 8rem;
+}
+
+.book {
+  height: 30rem;
+}
+
+.buttons_forBook {
+  margin-bottom: 3em;
+}
+
+.section-plantin__heading--highlight_1 {
+  margin-left: 0rem;
+}
+
+.section-book__title {
+  width: 80%;
+}
+
+.section-book__image {
+  max-width: 38rem;
+}
+
+.horizontal-scroll__highlight {
+  margin-left: 2em;
+}
+
+.horizontal-scroll__content {
+  padding-top: 8rem;
+}
+
+visit__info-title {
+  width: 70%;
+}
+
+
 }

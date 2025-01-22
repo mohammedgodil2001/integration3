@@ -297,6 +297,61 @@ book_handing.to(".book_inHand", {
   duration: 1,
 });
 
+let hand_giving_receiving = gsap.matchMedia();
+
+hand_giving_receiving.add("(min-width: 45rem)", () => {
+  console.log("yey");
+  book_handing.kill();
+  const book_handing_tablet = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".card_two",
+      start: "top 1%",
+      // end: "+=50%",
+      scrub: true,
+      markers: true,
+      // pin: true,
+      // pinSpacing: false,
+    },
+  });
+
+  book_handing_tablet.to(".hand_giving", {
+    x: "19.5rem",
+    ease: "power2.out",
+    duration: 1,
+  });
+
+  book_handing_tablet.to(".book_inHand", {
+    opacity: 1,
+    ease: "power2.out",
+    duration: 1,
+  });
+
+  book_handing_tablet.to(".hand_receiving", {
+    x: "-18rem",
+    ease: "power2.out",
+    duration: 1,
+  });
+
+  book_handing_tablet.to(".book_inHand", {
+    y: "6rem",
+    ease: "power2.out",
+    duration: 1,
+  });
+
+  gsap.to(".spark__figure", {
+    x: "-100vw",
+    scrollTrigger: {
+      trigger: ".spark",
+      start: "top 40%",
+      // end: "+=80%",
+      scrub: true,
+      // markers: true,
+      // pin: true,
+      // pinSpacing: false,
+    },
+  });
+});
+
 gsap.utils.toArray(".panel").forEach((panel, i) => {
   ScrollTrigger.create({
     trigger: panel,
@@ -318,12 +373,24 @@ let normal_paper = document.querySelector(".normal_paper");
 const paper = document.querySelector(".normal_paper");
 let printed_paper_section = document.querySelector(".printed_paper_section");
 let resetButton = document.querySelector(".reset-button");
+const isTablet = window.matchMedia("(min-width: 45rem)");
+const isfifty_three_breakPoint = window.matchMedia("(min-width: 53rem)");
 
 stamp.addEventListener("touchmove", (e) => {
   e.preventDefault();
   stamp.style.position = "absolute";
-  stamp.style.left = "4.5rem";
-  stamp.style.top = "2rem";
+  // stamp.style.left = "4.5rem";
+  // stamp.style.top = "2rem";
+  if (isfifty_three_breakPoint.matches) {
+    stamp.style.left = "14rem";
+    stamp.style.top = "3rem";
+  } else if (isTablet.matches) {
+    stamp.style.left = "11rem";
+    stamp.style.top = "3rem";
+  } else {
+    stamp.style.left = "4.5rem";
+    stamp.style.top = "2rem";
+  }
 });
 
 stamp.addEventListener("touchend", () => {
@@ -399,163 +466,13 @@ drake.on("drop", (el, target, source, sibling) => {
   }
 });
 
-// const pathLength = document.querySelector("#path").getTotalLength();
-
-// let path = document.querySelector("#path");
-// gsap.set(path, { strokeDasharray: pathLength });
-
-// gsap.fromTo(
-//   path,
-//   {
-//     strokeDashoffset: 0,
-//   },
-//   {
-//     strokeDashoffset: pathLength,
-//     scrollTrigger: {
-//       trigger: ".timeline__svg-container",
-//       start: "top top",
-//       end: "bottom bottom",
-//       markers: true,
-//     },
-//   }
-// );
-
-// const path = document.querySelector("#path");
-// const pathLength = path.getTotalLength();
-
-// gsap.set(path, { strokeDasharray: pathLength, strokeDashoffset: pathLength });
-
-// gsap.to(path, {
-//   strokeDashoffset: 0,
-//   scrollTrigger: {
-//     trigger: ".timeline",
-//     start: "top top",
-//     // end: "bottom bottom",
-//     scrub: true,
-//     markers: true,
-//     pin: true,
-//   },
-//   ease: "none",
-//   duration: 10,
-// });
-
-// gsap.to(".open_book", {
-//   scrollTrigger: {
-//     trigger: ".timeline",
-//     start: "top top",
-//     end: `+=${pathLength}px`,
-//     // end: '+=300vh'
-//     // pin: "#path",
-//     // pin: true,
-//     scrub: true,
-//     markers: true,
-//   },
-//   // duration: 10,
-//   ease: "none",
-//   motionPath: {
-//     path: "#path",
-//     align: "#path",
-//     alignOrigin: [0.5, 0],
-//   },
-// });
-
-// const timelineItems = document.querySelectorAll(".timeline__item");
-
-// timelineItems.forEach((item) => {
-//   const text = item.querySelector(".timeline__content");
-//   const image = item.querySelector(".timeline__media");
-//   const dataElement = item.querySelector(".data");
-
-//   if (dataElement) {
-//     gsap.fromTo(
-//       dataElement,
-//       { textContent: 0 },
-//       {
-//         textContent: 25000,
-//         duration: 4,
-//         ease: "power1.inOut",
-//         snap: { textContent: 1 },
-//         scrollTrigger: {
-//           trigger: item,
-//           start: "top 80%",
-//           end: "bottom 60%",
-//           toggleActions: "play none play restart",
-//           // scrub: true,
-//           // markers: true,
-//         },
-//         onUpdate: function () {
-//           dataElement.textContent = Math.floor(
-//             dataElement.textContent
-//           ).toLocaleString();
-//         },
-//       }
-//     );
-//   }
-
-//   // Standard animation for text
-//   gsap.fromTo(
-//     text,
-//     {
-//       opacity: 0,
-//       y: "2rem",
-//     },
-//     {
-//       scrollTrigger: {
-//         trigger: item,
-//         start: "top 80%",
-//         end: "bottom 60%",
-//         // markers: true,
-//         scrub: true,
-//       },
-//       opacity: 1,
-//       y: "0",
-//       duration: 1,
-//     }
-//   );
-
-//   // Standard animation for images
-//   gsap.fromTo(
-//     image,
-//     {
-//       opacity: 0,
-//       y: "2.5rem",
-//     },
-//     {
-//       scrollTrigger: {
-//         trigger: item,
-//         start: "top 80%",
-//         end: "bottom 60%",
-//         // markers: true,
-//         scrub: true,
-//       },
-//       opacity: 1,
-//       y: "0",
-//       duration: 1,
-//       delay: 0.5, // Adjust delay as needed
-//     }
-//   );
-// });
-
 const path = document.querySelector("#path");
 const pathLength = path.getTotalLength();
 
 gsap.set(path, { strokeDasharray: pathLength, strokeDashoffset: pathLength });
 
-// Animate the path stroke with scrolling
 gsap.to(path, {
   strokeDashoffset: 0,
-  scrollTrigger: {
-    trigger: ".timeline",
-    start: "top top",
-    end: `+=${pathLength}px`, // Match the timeline height
-    scrub: true,
-    markers: false, // Turn markers off for cleaner visuals
-  },
-  ease: "none",
-});
-
-// Animate the book along the path
-gsap.to(".open_book", {
   scrollTrigger: {
     trigger: ".timeline",
     start: "top top",
@@ -564,14 +481,18 @@ gsap.to(".open_book", {
     markers: false,
   },
   ease: "none",
-  motionPath: {
-    path: "#path",
-    align: "#path",
-    alignOrigin: [0.5, 0],
-  },
 });
 
-// Animate each timeline__item
+// gsap.to(".open_book", {
+//   scrollTrigger: {
+//     trigger: ".timeline",
+//     start: "top top",
+//     scrub: true,
+//     markers: false,
+//     pin: ".open_book",
+//   },
+// });
+
 const timelineItems = document.querySelectorAll(".timeline__item");
 
 timelineItems.forEach((item) => {
@@ -636,6 +557,46 @@ timelineItems.forEach((item) => {
       },
     }
   );
+});
+
+gsap.matchMedia().add({
+  "(min-width: 45rem)": function () {
+    timelineItems.forEach((item) => {
+      const text = item.querySelector(".timeline__content");
+      const image = item.querySelector(".timeline__media");
+
+      // Animate text
+      gsap.fromTo(
+        text,
+        { y: "4rem" },
+        {
+          y: "0",
+          scrollTrigger: {
+            trigger: item,
+            start: "top 80%",
+            end: "bottom 60%",
+            scrub: true,
+          },
+        }
+      );
+
+      gsap.fromTo(
+        image,
+        { opacity: 0, y: "5rem" },
+        {
+          opacity: 1,
+          y: "0",
+          duration: 1,
+          scrollTrigger: {
+            trigger: item,
+            start: "top 80%",
+            end: "bottom 60%",
+            scrub: true,
+          },
+        }
+      );
+    });
+  },
 });
 
 // $(".flipbook").turn();
@@ -747,7 +708,7 @@ gsap.to(".horizontal-scroll__image--moretus", {
     start: "top top",
     toggleActions: "play none reverse restart",
     // scrub: true,
-    markers: true,
+    // markers: true,
   },
 });
 
@@ -814,51 +775,60 @@ const book = document.querySelector("#book");
 
 const paper1 = document.querySelector("#p1");
 const paper2 = document.querySelector("#p2");
-const paper3 = document.querySelector("#p3");
 
-// Event Listener
 prevBtn.addEventListener("click", goPrevPage);
 nextBtn.addEventListener("click", goNextPage);
 
-// Business Logic
 let currentLocation = 1;
 let numOfPapers = 2;
 let maxLocation = numOfPapers;
 
+// function openBook() {
+//   book.style.transform = "translateX(10%)";
+//   book.style.transform = "scale(1.2)";
+// }
+
+// function closeBook(isAtBeginning) {
+//   if (isAtBeginning) {
+//     // book.style.transform = "translateX(50%)";
+//   }
+// }
+
 function openBook() {
+  book.style.transformOrigin = "center"; // Ensure scaling happens from the center
+  book.style.transform = "translateX(50%) scale(1.2)"; // Combine both transforms
+}
+
+function closeBook() {
+  // Reset book to its original position
   book.style.transform = "translateX(50%)";
+  book.style.transition = "transform 0.5s ease";
+
+  // paper2.style.height = "13rem"; // Match the original height
+  // paper2.style.transition = "height 0.5s ease";
 }
 
-function closeBook(isAtBeginning) {
-  if (isAtBeginning) {
-    book.style.transform = "translateX(50%)";
-  } else {
-    book.style.transform = "translateX(100%)";
-  }
-
-  prevBtn.style.transform = "translateX(0)";
-  nextBtn.style.transform = "translateX(0)";
-}
+// function goNextPage() {
+//   if (currentLocation < maxLocation) {
+//     switch (currentLocation) {
+//       case 1:
+//         openBook();
+//         paper1.classList.add("flipped");
+//         paper1.style.zIndex = 1;
+//         break;
+//     }
+//     currentLocation++;
+//   }
+// }
 
 function goNextPage() {
   if (currentLocation < maxLocation) {
-    switch (currentLocation) {
-      case 1:
+    if (currentLocation === 1) {
+      if (window.innerWidth <= 720) {
         openBook();
-        paper1.classList.add("flipped");
-        paper1.style.zIndex = 1;
-        break;
-      case 2:
-        paper2.classList.add("flipped");
-        paper2.style.zIndex = 2;
-        break;
-      case 3:
-        paper3.classList.add("flipped");
-        paper3.style.zIndex = 3;
-        closeBook(false);
-        break;
-      default:
-        throw new Error("unkown state");
+      }
+      paper1.classList.add("flipped");
+      paper1.style.zIndex = 1;
     }
     currentLocation++;
   }
@@ -872,17 +842,6 @@ function goPrevPage() {
         paper1.classList.remove("flipped");
         paper1.style.zIndex = 3;
         break;
-      case 3:
-        paper2.classList.remove("flipped");
-        paper2.style.zIndex = 2;
-        break;
-      case 4:
-        openBook();
-        paper3.classList.remove("flipped");
-        paper3.style.zIndex = 1;
-        break;
-      default:
-        throw new Error("unkown state");
     }
 
     currentLocation--;
