@@ -73,7 +73,7 @@ https://cdn.jsdelivr.net/npm/page-flip@2.0.7/src/Style/stPageFlip.min.css
                 </div>
 
                 <article class="cards">
-                  <section class="spark card_one panel">
+                  <section class="spark card_one panel panel1">
                       <div class="wrapper">
                       <h2 class="spark__heading">
                         The spark <br>   <span class="spark_before" >of <span class="spark__highlight">ambition</span></span>
@@ -85,7 +85,7 @@ https://cdn.jsdelivr.net/npm/page-flip@2.0.7/src/Style/stPageFlip.min.css
                     </div>
                   </section>
 
-                  <section class="card_two panel">
+                  <section class="card_two panel panel2">
                     <div class="wrapper">
                       <h2 class="card__title visually-hidden">Next Card</h2>
                       <p class="card__description">
@@ -101,41 +101,49 @@ https://cdn.jsdelivr.net/npm/page-flip@2.0.7/src/Style/stPageFlip.min.css
                 </article>
 
                 <section class="workshop">
+                  <h2 class="visually-hidden">workshop section</h2>
                   <img class="clouds" src="./src/assets/clouds.png" alt="clouds">
-                  <div class="wrapper workshop_container">
-                    <h2 class="workshop__heading">
-                      The <span class="workshop__highlight_one">birth</span> of <br><span class="workshop__highlight_two">  a workshop</span>
-                    </h2>
-                    <div class="workshop__description">
-                    With borrowed money and relentless determination, Plantin acquired his first printing press. It was heavy, noisy, and slow, but to him, it was a marvel. At first, he worked alone, meticulously setting movable metal type and hand-inking pages.
-                      <br>
-                      <span>Soon, Plantin’s reputation grew. He became known for his precision and the quality of his work. Orders poured in, and his humble workshop transformed into a bustling hub of creativity. Craftsmen joined him, arranging type, preparing ink, and producing books that would change lives.</span>
-                      
-                      <!-- <span><span class="workshop__try-it">Try It Yourself:</span> Use a stamp to recreate the essence of Plantin’s printing craft and see how books began their journey.</span> -->
-                    </div>
+                  
+                  <div class="workshop__wrapper wrapper">
+                    <div class=" workshop_container">
+                      <h3 class="workshop__heading">
+                        The <span class="workshop__highlight_one">birth</span> of <br><span class="workshop__highlight_two">  a workshop</span>
+                      </h3>
+                      <div class="workshop__description">
+                      With borrowed money and relentless determination, Plantin acquired his first printing press. It was heavy, noisy, and slow, but to him, it was a marvel. At first, he worked alone, meticulously setting movable metal type and hand-inking pages.
+                        <br>
+                        <span>Soon, Plantin’s reputation grew. He became known for his precision and the quality of his work. Orders poured in, and his humble workshop transformed into a bustling hub of creativity. Craftsmen joined him, arranging type, preparing ink, and producing books that would change lives.</span>
+                        
+                        <!-- <span><span class="workshop__try-it">Try It Yourself:</span> Use a stamp to recreate the essence of Plantin’s printing craft and see how books began their journey.</span> -->
+                      </div>
 
-                    <section class="printed_paper_section">
+                    </div>
+                    <section>
                       <h3 class="visually-hidden">paper printing</h3>
-                      <article class="container">
-                        <h4 class="visually-hidden">paper</h4>
-                        <img src="./src/assets/normal_paper.png" alt="normal_paper" class="normal_paper">
-                      </article>
-                      <article class="stamping" draggable="true">
-                        <h4 class="visually-hidden">stamp</h4>
-                        <img class=" stamp" src="./src/assets/stamp.png" alt="stamp" >
-                      </article>
+                      <section class="printed_paper_section">
+                        <h4 class="visually-hidden">paper printing</h4>
+                        <article class="container">
+                          <h4 class="visually-hidden">paper</h4>
+                          <img src="./src/assets/normal_paper.png" alt="normal_paper" class="normal_paper">
+                        </article>
+                        <article class="stamping" draggable="true">
+                          <h4 class="visually-hidden">stamp</h4>
+                          <img class=" stamp" src="./src/assets/stamp.png" alt="stamp" >
+                        </article>
+                      </section>
+                      <button class="reset-button">Try Again</button>
                     </section>
-                    <button class="reset-button">Try Again</button>
-                  </div>
+                </div>
+
                   <img class="paper_dividing" src="./src/assets/divider.png" alt="divider">
                 </section>
 
                 
 
-                  <section class="match-tools">
+                  <section class="match-tools matching_content">
                     <div class="wrapper">
                     <h2 class="match-tools__heading">
-                      Match the tools to <span class="match-tools__highlight">their <span class="match-tools__highlight--purpose">purpose</span></span>
+                      Match the tools to <br> <span class="match-tools__highlight">their <span class="match-tools__highlight--purpose">purpose</span></span>
                     </h2>
                     <p class="match-tools__description">
                       Now that you’ve seen how printing works, let’s explore the tools that powered Plantin’s workshop. Can you match each tool to its purpose and see how books were crafted in the 16th century?
@@ -144,109 +152,120 @@ https://cdn.jsdelivr.net/npm/page-flip@2.0.7/src/Style/stPageFlip.min.css
                   </section>
 
                   <section class="game-container">
-                  <div class="wrapper game-container">
-                  <h2 class="visually-hidden">drag and drop game</h2>
-                  <article class="drag-area">
-                    <h3 class="visually-hidden">draggable images</h3>
-                    <img src="./src/assets/ink_pot.png" alt="Image 1" class="draggable" data-match="option1">
-                    <img src="./src/assets/movable_type.png" alt="Image 2" class="draggable" data-match="option2">
-                    <img src="./src/assets/old_book.png" alt="Image 3" class="draggable" data-match="option3">
-                    <img src="./src/assets/paper.png" alt="Image 3" class="draggable" data-match="option4">
-                  </article>
-                
-                  
-                  <article class="drop-area">
-                    <h3 class="visually-hidden">draggable options</h3>
-                    <div class="drop-zone" data-match="option2">
-                      <img src="./src/assets/wooden_plate.png" alt="wooden_plate">
-                      <span>Arrange letters for printing</span>
+                      <div class="wrapper game-container">
+                      <h2 class="visually-hidden">drag and drop game</h2>
+
+                      <div class="drag_and_dropinggg">
+                        
+                        <section class="match-tools matching">
+                          
+                          <h2 class="match-tools__heading">
+                            Match the tools to <br> <span class="match-tools__highlight">their <span class="match-tools__highlight--purpose">purpose</span></span>
+                          </h2>
+                          <p class="match-tools__description">
+                            Now that you’ve seen how printing works, let’s explore the tools that powered Plantin’s workshop. Can you match each tool to its purpose and see how books were crafted in the 16th century?
+                          </p>
+                        
+                        </section>
+
+                        <article class="drag-area">
+                          <h3 class="visually-hidden">draggable images</h3>
+                          <img src="./src/assets/ink_pot.png" alt="Image 1" class="draggable" data-match="option1">
+                          <img src="./src/assets/movable_type.png" alt="Image 2" class="draggable" data-match="option2">
+                          <img src="./src/assets/old_book.png" alt="Image 3" class="draggable" data-match="option3">
+                          <img src="./src/assets/paper.png" alt="Image 3" class="draggable" data-match="option4">
+                        </article>
+                        <img src="./src/assets/tabletop.png" alt="tabletop" class="tabletop">
+                      </div>
+                      
+                      <article class="drop-area">
+                        <h3 class="visually-hidden">draggable options</h3>
+                        <div class="drop-zone" data-match="option2">
+                          <img src="./src/assets/wooden_plate.png" alt="wooden_plate">
+                          <span>Arrange letters for printing</span>
+                        </div>
+                        <div class="drop-zone" data-match="option1">
+                          <img src="./src/assets/wooden_plate.png" alt="wooden_plate">                     
+                          <span>Holds ink for printing</span>
+                        </div>
+                        <div class="drop-zone" data-match="option4">
+                          <img src="./src/assets/wooden_plate.png" alt="wooden_plate">                  
+                          <span>Prints text and illustration</span>
+                        </div>
+                        <div class="drop-zone" data-match="option3">
+                          <img src="./src/assets/wooden_plate.png" alt="wooden_plate">
+                          <span>The final printed product</span>
+                        </div>
+                      </article>
                     </div>
-                    <div class="drop-zone" data-match="option1">
-                      <img src="./src/assets/wooden_plate.png" alt="wooden_plate">                     
-                      <span>Holds ink for printing</span>
-                    </div>
-                    <div class="drop-zone" data-match="option4">
-                      <img src="./src/assets/wooden_plate.png" alt="wooden_plate">                  
-                      <span>Prints text and illustration</span>
-                    </div>
-                    <div class="drop-zone" data-match="option3">
-                      <img src="./src/assets/wooden_plate.png" alt="wooden_plate">
-                      <span>The final printed product</span>
-                    </div>
-                  </article>
-                </div>
-                <img class="paper_dividing2" src="./src/assets/divider.png" alt="divider">
-                <img class="paper_dividing2_1" src="./src/assets/divider.png" alt="divider">
+                    <img class="paper_dividing2" src="./src/assets/divider.png" alt="divider">
+                    <img class="paper_dividing2_1" src="./src/assets/divider.png" alt="divider">
                 </section>
 
                 <section class="timeline">
                   <h2 class="timeline__heading visually-hidden">Timeline Section</h2>
                   
-                  <div class="wrapper">
+                  <div class="wrapper timelining">
                   
                   <div class="timeline__svg-container">
-                    <!-- <svg class="timeline__svg" width="26" height="1493" viewBox="0 0 26 1493" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path id="path" d="M13 0.5V1492.5" stroke="#2F2B27" stroke-width="18"/>
-                      </svg> -->
                       
                       <svg class="timeline__svg" width="18" height="2500" viewBox="0 0 18 2500" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path id="path" d="M13 0V3000" stroke="#2F2B27" stroke-width="25"/>
                       </svg>
-                        
-                    <!-- <img class="open_book" src="./src/assets/bookkkk.png" alt="open_book_forScrolling"> -->
-                    <!-- <img class="open_book" src="./assets/open_book_forScrolling.png" alt="open_book_forScrolling"> -->
                   </div>
+
+                <div class="timeline_parent">
+                    <section class="timeline__item">
+                    <h3 class="timeline__item-heading visually-hidden">First One</h3>
+                    <article class="timeline__content">
+                      <h4 class="timeline__date">1550: <span class="timeline__highlight">Competition</span> in Printing</h4>
+                      <p class="timeline__description">Plantin faced fierce competition from other printers in cities like Venice and Paris. While they worked with four presses, Plantin dreamed bigger.</p>
+                    </article>
+                    <article class="timeline__media">
+                      <h4 class="timeline__media-heading visually-hidden">Printing Competition</h4>
+                      <img class="timeline__image" src="./src/assets/printing_press.png" alt="printing_press">
+                    </article>
+                  </section>
                 
-                 <section class="timeline__item">
-                <h3 class="timeline__item-heading visually-hidden">First One</h3>
-                <article class="timeline__content">
-                  <h4 class="timeline__date">1550: <span class="timeline__highlight">Competition</span> in Printing</h4>
-                  <p class="timeline__description">Plantin faced fierce competition from other printers in cities like Venice and Paris. While they worked with four presses, Plantin dreamed bigger.</p>
-                </article>
-                <article class="timeline__media">
-                  <h4 class="timeline__media-heading visually-hidden">Printing Competition</h4>
-                  <img class="timeline__image" src="./src/assets/printing_press.png" alt="printing_press">
-                </article>
-              </section>
-            
-              <section class="timeline__item">
-                <h3 class="timeline__item-heading visually-hidden">Second One</h3>
-                <article class="timeline__content">
-                  <h4 class="timeline__date">1570: <span class="timeline__highlight">22 presses</span></h4>
-                  <p class="timeline__description">By 1570, his workshop housed 22 presses, making it the largest printing operation in Europe.</p>
-                </article>
-                <article class="timeline__media">
-                  <h4 class="timeline__media-heading visually-hidden">Printing Presses</h4>
-                  <img class="timeline__image" src="./src/assets/stack_of_books.png" alt="stack_of_books">
-                </article>
-              </section>
-            
-              <section class="timeline__item">
-                <h3 class="timeline__item-heading visually-hidden">Third One</h3>
-                <article class="timeline__content">
-                  <h4 class="timeline__date"><span class="timeline__highlight">Peak</span> Production</h4>
-                  <p class="timeline__description">At its peak, Plantin’s workshop produced 25,000 books a year, each a masterpiece of craftsmanship.</p>
-                </article>
-                <article class="timeline__media">
-                  <h4 class="timeline__media-heading visually-hidden">Peak Production</h4>
-                  <img class="timeline__image" src="./src/assets/torn_paper.png" alt="torn_paper">
-                  <p class="data">25000</p>
-                  <span class="book_text">books</span>
-                </article>
-              </section>
-            
-              <section class="timeline__item">
-                <h3 class="timeline__item-heading visually-hidden">Fourth One</h3>
-                <article class="timeline__content">
-                  <h4 class="timeline__date">Ideas Across <span class="timeline__highlight">Europe</span></h4>
-                  <p class="timeline__description">From Antwerp, his works traveled across Europe, spreading ideas and innovation like wildfire.</p>
-                </article>
-                <article class="timeline__media">
-                  <h4 class="timeline__media-heading visually-hidden">Innovation Across Europe</h4>
-                  <img class="timeline__image" src="./src/assets/map_of_belgium.png" alt="map_of_belgium">
-                </article>
-              </section>  
+                  <section class="timeline__item switching_item">
+                    <h3 class="timeline__item-heading visually-hidden">Second One</h3>
+                    <article class="timeline__content">
+                      <h4 class="timeline__date">1570: <span class="timeline__highlight">22 presses</span></h4>
+                      <p class="timeline__description">By 1570, his workshop housed 22 presses, making it the largest printing operation in Europe.</p>
+                    </article>
+                    <article class="timeline__media">
+                      <h4 class="timeline__media-heading visually-hidden">Printing Presses</h4>
+                      <img class="timeline__image" src="./src/assets/stack_of_books.png" alt="stack_of_books">
+                    </article>
+                  </section>
                 
+                  <section class="timeline__item">
+                    <h3 class="timeline__item-heading visually-hidden">Third One</h3>
+                    <article class="timeline__content">
+                      <h4 class="timeline__date"><span class="timeline__highlight">Peak</span> Production</h4>
+                      <p class="timeline__description">At its peak, Plantin’s workshop produced 25,000 books a year, each a masterpiece of craftsmanship.</p>
+                    </article>
+                    <article class="timeline__media">
+                      <h4 class="timeline__media-heading visually-hidden">Peak Production</h4>
+                      <img class="timeline__image" src="./src/assets/torn_paper.png" alt="torn_paper">
+                      <p class="data">25000</p>
+                      <span class="book_text">books</span>
+                    </article>
+                  </section>
+                
+                  <section class="timeline__item switching_item">
+                    <h3 class="timeline__item-heading visually-hidden">Fourth One</h3>
+                    <article class="timeline__content">
+                      <h4 class="timeline__date">Ideas Across <span class="timeline__highlight">Europe</span></h4>
+                      <p class="timeline__description">From Antwerp, his works traveled across Europe, spreading ideas and innovation like wildfire.</p>
+                    </article>
+                    <article class="timeline__media">
+                      <h4 class="timeline__media-heading visually-hidden">Innovation Across Europe</h4>
+                      <img class="timeline__image" src="./src/assets/map_of_belgium.png" alt="map_of_belgium">
+                    </article>
+                  </section>  
+                    
+                </div>
                   
                 </div>
               </section>
@@ -346,15 +365,17 @@ https://cdn.jsdelivr.net/npm/page-flip@2.0.7/src/Style/stPageFlip.min.css
   
                 <section class="section-book">
                   <div class="wrapper">
-                    <h3 class="section-book__title">
-                      A <span class="section-book__highlight">book</span> is more than 
-                      <span class="section-book__highlight">paper and ink.</span>
-                    </h3>
-                    <p class="section-book__description">
-                      Plantin smiled as he inspected the perfect alignment of the letters, 
-                      the crispness of the ink, and the flawless craftsmanship. 
-                      “It is a bridge between minds,” he believed.
-                    </p>
+                    <div class="section-book_container">
+                      <h3 class="section-book__title">
+                        A <span class="section-book__highlight">book</span> is more than 
+                        <span class="section-book__highlight">paper and ink.</span>
+                      </h3>
+                      <p class="section-book__description">
+                        Plantin smiled as he inspected the perfect alignment of the letters, 
+                        the crispness of the ink, and the flawless craftsmanship. 
+                        “It is a bridge between minds,” he believed.
+                      </p>
+                    </div>
                     <div class="section-book_images_main">
                       <img 
                         class="section-book__image section-book__image--hand-one" 
@@ -377,14 +398,15 @@ https://cdn.jsdelivr.net/npm/page-flip@2.0.7/src/Style/stPageFlip.min.css
               <section class="horizontal-scroll">
                 <h2 class="visually-hidden">Horizontal scroll section</h2>
                 <section class="horizontal-scroll__content">
-                  <!-- <img 
+                  <img 
                     class="horizontal-scroll__image horizontal-scroll__image--plantin" 
                     src="./src/assets/Christpohe-Plantin_with_painting.png" 
                     alt="Plantin with painting"
-                  > -->
-                  <div class="wrapper">
+                  >
+                  <div class="wrapper scrolling_texting">
                     <h3 class="horizontal-scroll__title">
                       A Partnership Built on 
+                      <br>
                       <span class="horizontal-scroll__highlight">
                         <span class="horizontal-scroll__highlight_one">Vision</span> and <span class="horizontal-scroll__highlight_two">Dedication</span>
                       </span>
@@ -429,7 +451,7 @@ https://cdn.jsdelivr.net/npm/page-flip@2.0.7/src/Style/stPageFlip.min.css
             </section>
 
             <section class="museum-visit">
-              <div class="wrapper">
+              <div class="wrapper museum-visit--text">
                 <h2 class="museum-visit__title visually-hidden">Museum Visit Section</h2>   
                 <section class="museum-visit__info">
                   <h3 class="museum-visit__info-title">Explore the <span class="museum-visit__info-title--highlight">Plantin-Moretus</span> Museum</h3>
@@ -447,54 +469,13 @@ https://cdn.jsdelivr.net/npm/page-flip@2.0.7/src/Style/stPageFlip.min.css
             </section>
             </main>
 
-            <!-- <footer class="footer">
-              <div>
-                <article class="newsletter">
-                  <h2>Never Miss a <span>New Story!</span></h2>
-                  <div>
-                    Enter your email address
-                    <img class="arrow" src="./src/assets/arrow.svg" alt="arrow">
-                  </div>
-                  </form>
-                </article>
-            
-                
-                <article class="contact-info">
-                  <p>Vrijdagmarkt 22</p>
-                  <p>2000 Antwerp, Belgium</p>
-                  <p>
-                    <img class="phone" src="./src/assets/phone.svg" alt="phone">
-                    +32 (0)3 221 14 50
-                  </p>
-                  <p>
-                    <img class="message" src="./src/assets/message.svg" alt="message">
-                    <a>museum.plantin.moretus@antwerpen.be</a>
-                  </p>
-                </article>
-            
-              </div>
-              <div>
-                <article>
-                  <h2 class="visually-hidden">logo of museum</h2>
-                  <img class="footer_logo" src="./src/assets/logo.svg" alt="museum_logo">
-                </article>
-  
-                <article class="social">
-                  <h2>Follow us on</h2>
-                  <a href="#"><img src="./src/assets/facebook.svg" alt="facebook"></a>
-                  <a href="#"><img src="./src/assets/instagram.svg" alt="instagram"></a>
-                  <a href="#"><img src="./src/assets/twitter.svg" alt="twitter"></a>
-                </article>
-              </div>
-            </footer> -->
-
             <footer class="footer">
               <div class="wrapper footer">
               <div class="footer__content address_footer">
                 <!-- Newsletter Section -->
                 <article class="footer__newsletter newsletter">
                   <h2 class="newsletter__title">
-                    Never Miss a <span class="newsletter__highlight">New Story! about art and culture</span>
+                    Never Miss a <span class="newsletter__highlight">New Story</span>
                   </h2>
                   <div class="newsletter__input-wrapper">
                     <p class="newsletter__prompt">Enter your email address</p>

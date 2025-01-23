@@ -254,11 +254,8 @@ gsap.to(".spark__figure", {
   scrollTrigger: {
     trigger: ".spark",
     start: "top 40%",
-    // end: "+=80%",
     scrub: true,
-    // markers: true,
-    // pin: true,
-    // pinSpacing: false,
+    //markers: true,
   },
 });
 
@@ -266,10 +263,10 @@ const book_handing = gsap.timeline({
   scrollTrigger: {
     trigger: ".card_two",
     start: "top 1%",
-    // end: "+=80%",
+    end: "+=20%",
     scrub: true,
     // pin: true,
-    // markers: true,
+    //markers: true,
   },
 });
 
@@ -297,73 +294,104 @@ book_handing.to(".book_inHand", {
   duration: 1,
 });
 
-let hand_giving_receiving = gsap.matchMedia();
+// let hand_giving_receiving = gsap.matchMedia();
 
-hand_giving_receiving.add("(min-width: 45rem)", () => {
-  console.log("yey");
-  book_handing.kill();
-  const book_handing_tablet = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".card_two",
-      start: "top 1%",
-      // end: "+=50%",
-      scrub: true,
-      markers: true,
-      // pin: true,
-      // pinSpacing: false,
-    },
-  });
+// hand_giving_receiving.add("(min-width: 45rem)", () => {
+//   console.log("yey");
+//   book_handing.kill();
+//   const book_handing_tablet = gsap.timeline({
+//     scrollTrigger: {
+//       trigger: ".card_two",
+//       start: "top 1%",
+//       // end: "+=50%",
+//       scrub: true,
+//       markers: true,
+//       // pin: true,
+//       // pinSpacing: false,
+//     },
+//   });
 
-  book_handing_tablet.to(".hand_giving", {
-    x: "19.5rem",
-    ease: "power2.out",
-    duration: 1,
-  });
+//   book_handing_tablet.to(".hand_giving", {
+//     x: "19.5rem",
+//     ease: "power2.out",
+//     duration: 1,
+//   });
 
-  book_handing_tablet.to(".book_inHand", {
-    opacity: 1,
-    ease: "power2.out",
-    duration: 1,
-  });
+//   book_handing_tablet.to(".book_inHand", {
+//     opacity: 1,
+//     ease: "power2.out",
+//     duration: 1,
+//   });
 
-  book_handing_tablet.to(".hand_receiving", {
-    x: "-18rem",
-    ease: "power2.out",
-    duration: 1,
-  });
+//   book_handing_tablet.to(".hand_receiving", {
+//     x: "-18rem",
+//     ease: "power2.out",
+//     duration: 1,
+//   });
 
-  book_handing_tablet.to(".book_inHand", {
-    y: "6rem",
-    ease: "power2.out",
-    duration: 1,
-  });
+//   book_handing_tablet.to(".book_inHand", {
+//     y: "6rem",
+//     ease: "power2.out",
+//     duration: 1,
+//   });
 
-  gsap.to(".spark__figure", {
-    x: "-100vw",
-    scrollTrigger: {
-      trigger: ".spark",
-      start: "top 40%",
-      // end: "+=80%",
-      scrub: true,
-      // markers: true,
-      // pin: true,
-      // pinSpacing: false,
-    },
-  });
+//   gsap.to(".spark__figure", {
+//     x: "-100vw",
+//     scrollTrigger: {
+//       trigger: ".spark",
+//       start: "top 40%",
+//       // end: "+=80%",
+//       scrub: true,
+//       // markers: true,
+//       // pin: true,
+//       // pinSpacing: false,
+//     },
+//   });
+// });
+
+// gsap.utils.toArray(".panel").forEach((panel, i) => {
+//   ScrollTrigger.create({
+//     trigger: panel,
+//     start: "top top",
+//     end: "+=70%",
+//     pin: true,
+//     markers: true,
+//     pinSpacing: false,
+//   });
+// });
+
+// gsap.utils.toArray(".panel").forEach((panel, i) => {
+//   ScrollTrigger.create({
+//     trigger: panel,
+//     start: "top top",
+//     end: "+=70%",
+//     pin: true,
+//     markers: true,
+//     pinSpacing: false,
+//   });
+// });
+
+const panel1 = document.querySelector(".panel1");
+ScrollTrigger.create({
+  trigger: panel1,
+  start: "top top",
+  // end: "+=70%",
+  pin: true,
+  markers: true,
+  pinSpacing: false,
 });
 
-gsap.utils.toArray(".panel").forEach((panel, i) => {
-  ScrollTrigger.create({
-    trigger: panel,
-    start: "top top",
-    // end: "bottom+=100%",
-    end: "bottom+=100%",
-    // end: "+=100%",
-    pin: true,
-    // pinSpacing: false,
-    pinSpacing: i === gsap.utils.toArray(".panel").length - 1 ? true : false,
-    // markers: true,
-  });
+const panel2 = document.querySelector(".panel2");
+ScrollTrigger.create({
+  trigger: panel2,
+  start: "top top",
+  end: "+=100%",
+  // pin: true,
+  markers: {
+    startColor: "purple",
+    endColor: "purple",
+  },
+  // pinSpacing: true,
 });
 
 const draggable = document.querySelectorAll(".draggable");
@@ -374,21 +402,55 @@ const paper = document.querySelector(".normal_paper");
 let printed_paper_section = document.querySelector(".printed_paper_section");
 let resetButton = document.querySelector(".reset-button");
 const isTablet = window.matchMedia("(min-width: 45rem)");
+const thirty_one = window.matchMedia("(min-width: 31rem)");
 const isfifty_three_breakPoint = window.matchMedia("(min-width: 53rem)");
+const thousand_pixels = window.matchMedia("(min-width: 62.5rem)");
+const sixty_eight = window.matchMedia("(min-width: 68rem)");
+const seventy_five = window.matchMedia("(min-width: 75rem)");
+const eight_one = window.matchMedia("(min-width: 81rem)");
+
+if (eight_one.matches) {
+  gsap.to(".horizontal-scroll__image--plantin", {
+    x: "14rem",
+    scrollTrigger: {
+      trigger: ".horizontal-scroll__content",
+      start: "top top",
+      toggleActions: "play none reverse restart",
+      // scrub: true,
+      // markers: true,
+    },
+  });
+}
 
 stamp.addEventListener("touchmove", (e) => {
   e.preventDefault();
   stamp.style.position = "absolute";
   // stamp.style.left = "4.5rem";
   // stamp.style.top = "2rem";
-  if (isfifty_three_breakPoint.matches) {
+
+  if (eight_one.matches) {
+    stamp.style.right = "0";
+    stamp.style.top = "3rem";
+  } else if (seventy_five.matches) {
+    stamp.style.left = "21.5rem";
+    stamp.style.top = "3rem";
+  } else if (sixty_eight.matches) {
+    stamp.style.left = "19rem";
+    stamp.style.top = "3rem";
+  } else if (thousand_pixels.matches) {
+    stamp.style.left = "17rem";
+    stamp.style.top = "3rem";
+  } else if (isfifty_three_breakPoint.matches) {
     stamp.style.left = "14rem";
     stamp.style.top = "3rem";
   } else if (isTablet.matches) {
     stamp.style.left = "11rem";
     stamp.style.top = "3rem";
+  } else if (thirty_one.matches) {
+    stamp.style.left = "7.5rem";
+    stamp.style.top = "3rem";
   } else {
-    stamp.style.left = "4.5rem";
+    stamp.style.left = "5rem";
     stamp.style.top = "2rem";
   }
 });
@@ -410,6 +472,8 @@ function animateStampOnPaper() {
   }, 1500);
 }
 
+let Dragging = false;
+
 resetButton.addEventListener("click", () => {
   stamp.style.display = "block";
   stamp.style.position = "";
@@ -422,7 +486,28 @@ resetButton.addEventListener("click", () => {
   normal_paper.style.transform = "";
   printed_paper_section.style.paddingBottom = "";
   normal_paper.style.paddingTop = "";
+  Dragging = false;
 });
+
+stamp.addEventListener("mousedown", (e) => {
+  e.preventDefault();
+  Dragging = true;
+  document.addEventListener("mousemove", handleMouseMove);
+});
+
+document.addEventListener("mouseup", () => {
+  if (Dragging) {
+    animateStampOnPaper();
+    Dragging = false;
+  }
+  document.removeEventListener("mousemove", handleMouseMove);
+});
+
+function handleMouseMove(e) {
+  stamp.style.position = "absolute";
+  stamp.style.left = "0";
+  stamp.style.top = "3rem";
+}
 
 const dragArea = document.querySelector(".drag-area");
 const dropZones = document.querySelectorAll(".drop-zone");
@@ -782,17 +867,6 @@ nextBtn.addEventListener("click", goNextPage);
 let currentLocation = 1;
 let numOfPapers = 2;
 let maxLocation = numOfPapers;
-
-// function openBook() {
-//   book.style.transform = "translateX(10%)";
-//   book.style.transform = "scale(1.2)";
-// }
-
-// function closeBook(isAtBeginning) {
-//   if (isAtBeginning) {
-//     // book.style.transform = "translateX(50%)";
-//   }
-// }
 
 function openBook() {
   book.style.transformOrigin = "center"; // Ensure scaling happens from the center
