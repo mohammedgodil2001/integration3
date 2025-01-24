@@ -1040,7 +1040,7 @@ rotate: -211deg; */
   pointer-events: none; 
 } */
 
-.candle_images::after {
+/* .candle_images::after {
   content: ""; 
   position: absolute; 
   top: -2.5rem;
@@ -1052,7 +1052,7 @@ rotate: -211deg; */
   background-size: contain; 
   background-repeat: no-repeat; 
   pointer-events: none; 
-}
+} */
 
 .legacy-section__image{
   width: 100%;
