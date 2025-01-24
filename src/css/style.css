@@ -1034,7 +1034,7 @@ rotate: -211deg; */
   transform: translateX(-50%); 
   width: 50px; 
   height: 70px; 
-  background-image: url('./src/assets/new_candlefire.gif'); 
+  background-image: url('./new_candlefire.gif'); 
   background-size: contain; 
   background-repeat: no-repeat; 
   pointer-events: none; 
@@ -1049,7 +1049,6 @@ rotate: -211deg; */
   width: 50px; 
   height: 70px; 
   background-image: url('./new_candlefire.gif'); 
-  /* background-image: url('./src/assets/new_candlefire.gif');  */
   background-size: contain; 
   background-repeat: no-repeat; 
   pointer-events: none; 
