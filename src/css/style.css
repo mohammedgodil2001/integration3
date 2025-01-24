@@ -19,6 +19,10 @@ body {
     font-weight: 600;
 }
 
+.letters_fall{
+  width: 150%;
+}
+
 /* .falling_letters{
   width: 100vh;
 } */
