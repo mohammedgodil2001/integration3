@@ -1040,7 +1040,7 @@ rotate: -211deg; */
   pointer-events: none; 
 } */
 
-/* .candle_images::after {
+.candle_images::after {
   content: ""; 
   position: absolute; 
   top: -2.5rem;
@@ -1048,11 +1048,11 @@ rotate: -211deg; */
   transform: translateX(-50%); 
   width: 50px; 
   height: 70px; 
-  background-image: url('new_candlefire.gif'); 
+  background-image: url('/new_candlefire.gif'); 
   background-size: contain; 
   background-repeat: no-repeat; 
   pointer-events: none; 
-} */
+}
 
 .legacy-section__image{
   width: 100%;
