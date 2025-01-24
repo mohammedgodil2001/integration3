@@ -15,6 +15,9 @@ body {
     font-style: normal;  /* Adjust as needed */
   }
 
+  strong {
+    font-weight: 600;
+}
 
   .visually-hidden {
     clip: rect(0 0 0 0);
@@ -30,9 +33,12 @@ body {
     overflow-x: hidden;
   }
 
-  svg {
+  .timeline__svg {
     position: absolute;
   }
+  /* svg {
+    position: absolute;
+  } */
 
   .header{
     padding-top: 1.5rem;
@@ -360,9 +366,9 @@ body {
 
 .workshop__description{
   color: #4B4239;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.5rem; */
 }
 
 .workshop__try-it{
@@ -1345,6 +1351,156 @@ rotate: -211deg; */
 
 
 
+.hidden {
+  display: none;
+}
+
+.nav {
+  margin: 0 auto 2rem auto;
+  /* max-width: var(--max-page-width); */
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Vertically center the items */
+  padding-top: 1rem;
+  max-width: 80%;
+}
+
+.nav__item{
+  list-style: none;
+  font-family: "rocky-compressed", serif;
+  font-size: 2.4rem;
+  border-bottom: 1px solid #F2F1EE;
+  margin-top: 0.5em;
+}
+
+.nav__item a{
+  color: #F2F1EE;
+}
+
+.nav__button {
+  border: none;
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  line-height: 1;
+  background: transparent;
+  appearance: none;
+  color: black;
+  cursor: pointer;
+}
+
+.nav__button svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.closing__button {
+  /* align-self: flex-end; */
+  border: none;
+  background: transparent;
+  margin: 0.5rem;
+  cursor: pointer;
+}
+
+.closing__button svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #F2F1EE;
+}
+
+.nav__list {
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  height: 100vh;
+  background-color: #2F2B27;
+  /* overflow: hidden; */
+  overflow-x: hidden;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  z-index: 100;
+  padding: 1rem 1.5rem;
+    box-sizing: border-box;
+    /* gap: 1.5em; */
+}
+
+.abc {
+  transform: translateX(0);
+}
+
+.closing__button svg{
+  position: relative;
+}
+
+.header__logo{
+  width: 100%;
+  max-width: 5.5rem;
+}
+
+.cross_and_logo{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.nav__link {
+  display: block;
+  padding: 1rem;
+  text-decoration: none;
+  color: black;
+  
+}
+
+
+
+/* @media screen and (min-width: 45em){  
+ 
+  .nav__button {
+    display: none;
+  }
+
+  .inside_logo{
+    display: none;
+}
+
+  .nav__button {
+      display: none;
+    }
+  
+    
+    .nav__list {
+      transform: none; 
+      position: static; 
+      height: auto; 
+      width: auto; 
+      flex-direction: row; 
+      justify-content: flex-end; 
+      background-color: transparent; 
+    }
+  
+    .nav__item {
+      display: inline-block; 
+    }
+  
+    .nav__link {
+      padding: 0 1rem; 
+      font-size: 1rem;
+    }
+  
+    .closing__button {
+      display: none; 
+    }
+   
+  
+} */
+
+
+
+
 /* ------------- */
 
 @media  (min-width : 26rem) {
@@ -1361,9 +1517,24 @@ rotate: -211deg; */
     font-size: 1.15rem;
   }
 
+  .nav{
+    padding: 1rem 2.5rem;
+  }
+
   .hand_receiving{
     max-width: 27rem;
   }
+
+  .closing__button svg {
+    width: 2rem;
+    height: 2rem;
+}
+
+.nav__item {
+  list-style: none;
+  font-family: "rocky-compressed", serif;
+  font-size: 2.6rem;
+}
 
   .hand_giving{
     max-width: 23rem;
@@ -1452,6 +1623,10 @@ rotate: -211deg; */
   .hand_receiving{
     right: -18rem;
   }
+  .nav__button svg {
+    width: 2rem;
+    height: 2rem;
+}
 }
 
 @media  (min-width : 44rem) {
@@ -1459,6 +1634,9 @@ rotate: -211deg; */
     max-width: 30rem;
     right: -19rem;
   }
+  .nav__item {
+    font-size: 3rem;
+}
 }
 
 @media  (min-width : 45rem) {
@@ -1467,6 +1645,10 @@ rotate: -211deg; */
   {
     font-size: 1.25rem;
   }
+
+  /* .nav {
+    padding: 1.5rem 3rem;
+} */
 
   #f2{
     padding: 2em;
@@ -1765,6 +1947,107 @@ rotate: -211deg; */
 
 }
 
+/* @media screen and (min-width: 45rem){  
+ 
+  .nav__button {
+    display: none;
+  }
+
+  .inside_logo{
+    display: none;
+}
+
+  .nav__button {
+      display: none;
+    }
+  
+    
+    .nav__list {
+      transform: none; 
+      position: static; 
+      height: auto; 
+      width: auto; 
+      flex-direction: row; 
+      justify-content: space-between; 
+      background-color: transparent; 
+      width: 100%;
+      align-items: center;
+      
+
+    }
+  
+    .nav__item {
+      display: inline-block; 
+    }
+  
+    .nav__link {
+      padding: 0 1rem; 
+      font-size: 1rem;
+    }
+  
+    .closing__button {
+      display: none; 
+    }
+   
+  
+} */
+
+
+/* @media screen and (min-width: 45em) {  
+  .nav__button {
+      display: none; 
+  }
+
+  .inside_logo {
+      display: block; 
+      width: 5rem; 
+  }
+
+  
+  .nav__list {
+      transform: none; 
+      position: static; 
+      height: auto; 
+      width: auto; 
+      flex-direction: row; 
+      justify-content: space-between; 
+      align-items: center; 
+      gap: 1.5rem; 
+      background-color: transparent; 
+  }
+
+  .cross_and_logo{
+    display: none;
+  }
+
+  .nav__item {
+      display: inline-block; 
+      list-style: none;
+  }
+
+  .nav__link {
+      padding: 0.5rem 1rem; 
+      font-size: 1rem; 
+      color: black; 
+      text-decoration: none;
+  }
+
+  .nav__link:hover {
+      background-color: var(--primary-color); 
+      color: white; 
+  }
+
+  .nav__item a {
+    color: black;
+}
+
+  .closing__button {
+      display: none; 
+  }
+} */
+
+
+
 @media  (min-width : 53rem) {
 
   .hand_receiving {
@@ -1851,6 +2134,26 @@ visit__info-title {
   .book_inHand {
     left: 21rem;
   }
+
+  .nav__item {
+    font-size: 3.5rem;
+}
+
+  .header__logo {
+    width: 100%;
+    max-width: 6.5rem;
+}
+
+/* .nav__item {
+  border: none;
+  text-align: center;
+}
+
+#nav__list{
+  width: max-content;
+ 
+  margin: auto;
+} */
 
   .hand_giving {
     max-width: 33rem;
@@ -2107,10 +2410,14 @@ visit__info-title {
   margin-left: 10em;
 }
 
-svg {
+.timeline__svg {
   position: absolute;
   left: 50%;
 }
+/* svg {
+  position: absolute;
+  left: 50%;
+} */
 
 .data {
   top: 5rem;
@@ -2219,6 +2526,20 @@ svg {
 @media  (min-width : 75rem){
   .game-container {
     padding-bottom: 9rem;
+}
+
+.nav__button svg {
+  width: 2.3rem;
+  height: 2.3rem;
+}
+
+.nav__item {
+  font-size: 4rem;
+}
+
+.closing__button svg {
+  width: 3rem;
+  height: 3rem;
 }
 
 .data {
@@ -2461,6 +2782,9 @@ width: 22rem;
 }
 
 @media  (min-width : 87.5rem){
+  .nav__item {
+    font-size: 4.5rem;
+}
   .museum-visit--text {
     width: 60%;
 }
@@ -2496,4 +2820,9 @@ width: 22rem;
   margin-top: -8em;
 }
 
+.section-book__image {
+  max-width: 60rem;
 }
+
+}
+
