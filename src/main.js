@@ -205,6 +205,8 @@ const draw = () => {
   window.requestAnimationFrame(draw);
 };
 
+draw();
+
 // function resizeSVGsForMobile() {
 //   // Select all SVGs with the .matter-path class
 //   const paths = document.querySelectorAll(".matter-path");
@@ -464,7 +466,7 @@ function animateStampOnPaper() {
 
   setTimeout(() => {
     stamp.style.display = "none";
-    normal_paper.src = "./src/assets/printed_paper.png";
+    normal_paper.src = "assets/printed_paper.png";
     normal_paper.style.transform = "scale(1.2)";
     printed_paper_section.style.paddingBottom = "2rem";
     normal_paper.style.paddingTop = "1.5rem";
