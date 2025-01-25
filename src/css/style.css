@@ -365,7 +365,27 @@ body {
   flex-direction: column;
 }
 
+.hand_pointing{
+  width: 100%;
+  max-width: 2.5rem;
+  rotate: 180deg;
+  animation: moveForwardAndBack 2s ease-in-out infinite;
+  margin-top: 1em;
+}
 
+
+
+@keyframes moveForwardAndBack {
+  0% {
+    transform: translateX(0); 
+  }
+  0% {
+    transform: translateX(-60vw); 
+  }
+  100% {
+    transform: translateX(0); 
+  }
+}
 
 /* .workshop {
   position: relative;
@@ -1283,12 +1303,34 @@ rotate: -211deg; */
 #prev-btn, #next-btn{
   font-size: 1.2rem;
     padding: 0.5rem 1rem;
-    border-radius: 1.5rem;
-    color: #4B4239;
+    border-radius: 0.5em;
+    color: #FAF0E6;
     border: none;
-    background-color: #E0CE9E;
+    background-color: #2F2B27;
+    cursor: pointer;
 }
 
+#next-btn{
+  animation: pulse 1.5s infinite;
+}
+
+#prev-btn:disabled{
+  background-color: #ccc; 
+    color: #666; 
+    cursor: not-allowed;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1); 
+  }
+  50% {
+    transform: scale(1.2); 
+  }
+  100% {
+    transform: scale(1); 
+  }
+}
 
 .museum-visit{
   padding-top: 3em;
@@ -1550,6 +1592,12 @@ rotate: -211deg; */
   .book_inHand {
     left: 6.5rem;
   }
+
+  .candle_images::before {
+    top: -1px;
+    left: 77%;
+  }
+
 }
 
 @media  (min-width : 31rem) {
@@ -1559,6 +1607,13 @@ rotate: -211deg; */
   {
     font-size: 1.15rem;
   }
+
+  .candle_images::before {
+    top: -17px;
+    left: 80%;
+    width: 70px;
+    height: 90px;
+}
 
   .nav{
     padding: 1rem 2.5rem;
@@ -1656,11 +1711,18 @@ rotate: -211deg; */
 
 }
 
+
 @media  (min-width : 31rem) {
   .hand_receiving{
     right: -23rem;
   }
 }
+@media  (min-width : 37.5rem) {
+  .candle_images::before {
+    left: 83%;
+  }
+}
+
 
 @media  (min-width : 38.75rem) {
   .hand_receiving{
@@ -1680,6 +1742,14 @@ rotate: -211deg; */
   .nav__item {
     font-size: 3rem;
 }
+.candle_images::before {
+  left: 85%;
+}
+
+.hand_pointing {
+  max-width: 3rem;
+}
+
 }
 
 @media  (min-width : 45rem) {
@@ -1689,9 +1759,20 @@ rotate: -211deg; */
     font-size: 1.25rem;
   }
 
-  /* .nav {
-    padding: 1.5rem 3rem;
-} */
+  .candle_images::before {
+    left: 79%;
+    width: 120px;
+    top: 0rem;
+    height: 120px;
+}
+
+  .candle_images::after {
+    top: -3.5rem;
+    right: -3%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+}
 
   #f2{
     padding: 2em;
@@ -2178,6 +2259,10 @@ visit__info-title {
     left: 21rem;
   }
 
+  .candle_images::before {
+    left: 82%;
+}
+
   .nav__item {
     font-size: 3.5rem;
 }
@@ -2212,14 +2297,36 @@ visit__info-title {
 
 }
 
+@media  (min-width : 61.75rem){
+  .candle_images::before {
+    left: 83%;
+}
+}
 
 @media  (min-width : 62.5rem){
   .hand_giving {
     max-width: 34rem;
     top: 16rem;
   }
+
+  .hand_pointing {
+    max-width: 3.5rem;
+}
   
- 
+  .candle_images::before {
+    left: 78%;
+    /* top: 0; */
+    width: 150px;
+    height: 150px;
+}
+
+.candle_images::after {
+  top: -5.5rem;
+  right: -4rem;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 150px;
+}
 
   .hand_receiving{
     max-width: 38rem;
@@ -2519,6 +2626,13 @@ visit__info-title {
     max-width: 47rem;
 }
 
+.candle_images::before {
+  left: 80%;
+  /* top: 0; */
+  width: 150px;
+  height: 150px;
+}
+
 .hand_giving {
   max-width: 43rem;
   left: -17rem;
@@ -2569,6 +2683,13 @@ visit__info-title {
 @media  (min-width : 75rem){
   .game-container {
     padding-bottom: 9rem;
+}
+
+.candle_images::before {
+  left: 82%;
+  /* top: 0; */
+  width: 150px;
+  height: 150px;
 }
 
 .nav__button svg {
@@ -2635,7 +2756,37 @@ visit__info-title {
     font-size: 1.4rem;
     max-width: 41ch;
 }
+
+.candle_images::before {
+  left: 85%;
+  top: -3rem;
+  width: 200px;
+  height: 200px;
+}
+
+.hand_pointing_parent{
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  gap: 3rem;
+}
   
+.hand_pointing {
+  rotate: -90deg;
+}
+
+@keyframes moveForwardAndBack {
+  0% {
+    transform: translateX(0); 
+  }
+  0% {
+    transform: translateX(-15vw); 
+  }
+  100% {
+    transform: translateX(5vw); 
+  }
+}
+
   .hero__heading{
     font-size: 6.7rem;
   }
@@ -2832,6 +2983,11 @@ width: 22rem;
     width: 60%;
 }
 
+.candle_images::before {
+  left: 86%;
+ 
+}
+
 .divider_7 {
   transform: translateY(-33rem);
 }
@@ -2850,6 +3006,10 @@ width: 22rem;
 
 .clouds {
   top: -19rem;
+}
+
+.hand_pointing_parent{
+  gap: 4rem;
 }
 
 .book {

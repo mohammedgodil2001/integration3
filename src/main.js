@@ -459,6 +459,7 @@ stamp.addEventListener("touchmove", (e) => {
 
 stamp.addEventListener("touchend", () => {
   animateStampOnPaper();
+  document.querySelector(".hand_pointing").style.display = "none";
 });
 
 function animateStampOnPaper() {
@@ -489,12 +490,14 @@ resetButton.addEventListener("click", () => {
   printed_paper_section.style.paddingBottom = "";
   normal_paper.style.paddingTop = "";
   Dragging = false;
+  document.querySelector(".hand_pointing").style.display = "block";
 });
 
 stamp.addEventListener("mousedown", (e) => {
   e.preventDefault();
   Dragging = true;
   document.addEventListener("mousemove", handleMouseMove);
+  document.querySelector(".hand_pointing").style.display = "none";
 });
 
 document.addEventListener("mouseup", () => {
@@ -876,28 +879,13 @@ function openBook() {
 }
 
 function closeBook() {
-  // Reset book to its original position
   book.style.transform = "translateX(50%)";
   book.style.transition = "transform 0.5s ease";
-
-  // paper2.style.height = "13rem"; // Match the original height
-  // paper2.style.transition = "height 0.5s ease";
 }
 
-// function goNextPage() {
-//   if (currentLocation < maxLocation) {
-//     switch (currentLocation) {
-//       case 1:
-//         openBook();
-//         paper1.classList.add("flipped");
-//         paper1.style.zIndex = 1;
-//         break;
-//     }
-//     currentLocation++;
-//   }
-// }
-
 function goNextPage() {
+  nextBtn.style.animation = "none";
+  prevBtn.disabled = false;
   if (currentLocation < maxLocation) {
     if (currentLocation === 1) {
       if (window.innerWidth <= 720) {
@@ -911,6 +899,8 @@ function goNextPage() {
 }
 
 function goPrevPage() {
+  prevBtn.disabled = true;
+  nextBtn.style.animation = "pulse 1.5s infinite";
   if (currentLocation > 1) {
     switch (currentLocation) {
       case 2:
