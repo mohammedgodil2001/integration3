@@ -467,7 +467,7 @@ function animateStampOnPaper() {
 
   setTimeout(() => {
     stamp.style.display = "none";
-    // normal_paper.src = "/printed_paper.png";
+    normal_paper.src = "/printed_paper.png";
     // normal_paper.src = normal_paper.getAttribute("data-printed-src");
     normal_paper.style.transform = "scale(1.2)";
     printed_paper_section.style.paddingBottom = "2rem";
