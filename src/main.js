@@ -467,7 +467,7 @@ function animateStampOnPaper() {
 
   setTimeout(() => {
     stamp.style.display = "none";
-    normal_paper.src = "./src/assets/printed_paper.png";
+    normal_paper.src = "/printed_paper.png";
     normal_paper.style.transform = "scale(1.2)";
     printed_paper_section.style.paddingBottom = "2rem";
     normal_paper.style.paddingTop = "1.5rem";
@@ -485,7 +485,7 @@ resetButton.addEventListener("click", () => {
   stamp.style.animation = "";
   resetButton.style.display = "none";
 
-  normal_paper.src = "./src/assets/normal_paper.png";
+  normal_paper.src = "/normal_paper.png";
   normal_paper.style.transform = "";
   printed_paper_section.style.paddingBottom = "";
   normal_paper.style.paddingTop = "";
