@@ -15,6 +15,16 @@ const sixty_eight = window.matchMedia("(min-width: 68rem)");
 const seventy_five = window.matchMedia("(min-width: 75rem)");
 const eight_one = window.matchMedia("(min-width: 81rem)");
 let Dragging = false;
+const prevBtn = document.querySelector("#prev-btn");
+const nextBtn = document.querySelector("#next-btn");
+const book = document.querySelector("#book");
+
+const paper1 = document.querySelector("#p1");
+const paper2 = document.querySelector("#p2");
+
+let currentLocation = 1;
+let numOfPapers = 2;
+let maxLocation = numOfPapers;
 
 const setupAnimations = () => {
   gsap.to(".spark__figure", {
@@ -77,37 +87,25 @@ const setupPanelPinning = () => {
     start: "top top",
     end: "+=100%",
 
-    markers: {
-      startColor: "purple",
-      endColor: "purple",
-    },
+    // markers: {
+    //   startColor: "purple",
+    //   endColor: "purple",
+    // },
   });
 };
 
-// const draggable = document.querySelectorAll(".draggable");
-// const stamp = document.querySelector(".stamp");
-// let normal_paper = document.querySelector(".normal_paper");
-// const paper = document.querySelector(".normal_paper");
-// let printed_paper_section = document.querySelector(".printed_paper_section");
-// let resetButton = document.querySelector(".reset-button");
-// const isTablet = window.matchMedia("(min-width: 45rem)");
-// const thirty_one = window.matchMedia("(min-width: 31rem)");
-// const isfifty_three_breakPoint = window.matchMedia("(min-width: 53rem)");
-// const thousand_pixels = window.matchMedia("(min-width: 62.5rem)");
-// const sixty_eight = window.matchMedia("(min-width: 68rem)");
-// const seventy_five = window.matchMedia("(min-width: 75rem)");
-// const eight_one = window.matchMedia("(min-width: 81rem)");
-
-if (eight_one.matches) {
-  gsap.to(".horizontal-scroll__image--plantin", {
-    x: "14rem",
-    scrollTrigger: {
-      trigger: ".horizontal-scroll__content",
-      start: "top top",
-      toggleActions: "play none reverse restart",
-    },
-  });
-}
+const plantinComing = () => {
+  if (eight_one.matches) {
+    gsap.to(".horizontal-scroll__image--plantin", {
+      x: "14rem",
+      scrollTrigger: {
+        trigger: ".horizontal-scroll__content",
+        start: "top top",
+        toggleActions: "play none reverse restart",
+      },
+    });
+  }
+};
 
 const addDragListeners = () => {
   stamp.addEventListener("touchmove", (e) => {
@@ -176,8 +174,6 @@ function animateStampOnPaper() {
   }, 1500);
 }
 
-// let Dragging = false;
-
 const tryAgainButton = () => {
   resetButton.addEventListener("click", () => {
     stamp.style.display = "block";
@@ -197,285 +193,264 @@ const tryAgainButton = () => {
   });
 };
 
-// stamp.addEventListener("mousedown", (e) => {
-//   e.preventDefault();
-//   Dragging = true;
-//   document.addEventListener("mousemove", handleMouseMove);
-//   document.querySelector(".hand_pointing").style.display = "none";
-// });
-
-// document.addEventListener("mouseup", () => {
-//   if (Dragging) {
-//     animateStampOnPaper();
-//     Dragging = false;
-//   }
-//   document.removeEventListener("mousemove", handleMouseMove);
-// });
-
 const handleMouseMove = (e) => {
   stamp.style.position = "absolute";
   stamp.style.left = "0";
   stamp.style.top = "3rem";
 };
 
-const dragArea = document.querySelector(".drag-area");
-const dropZones = document.querySelectorAll(".drop-zone");
+const dragAndDrop = () => {
+  const dragArea = document.querySelector(".drag-area");
+  const dropZones = document.querySelectorAll(".drop-zone");
 
-const draggables = document.querySelectorAll(".draggable");
+  const draggables = document.querySelectorAll(".draggable");
 
-draggables.forEach((draggable) => {
-  draggable.addEventListener("touchmove", (e) => {
-    e.preventDefault();
+  draggables.forEach((draggable) => {
+    draggable.addEventListener("touchmove", (e) => {
+      e.preventDefault();
+    });
   });
-});
 
-const drake = dragula([dragArea, ...dropZones], {
-  revertOnSpill: true,
-});
+  const drake = dragula([dragArea, ...dropZones], {
+    revertOnSpill: true,
+  });
 
-drake.on("drop", (el, target, source, sibling) => {
-  if (!target || !target.classList.contains("drop-zone")) {
-    return;
-  }
+  drake.on("drop", (el, target, source, sibling) => {
+    if (!target || !target.classList.contains("drop-zone")) {
+      return;
+    }
 
-  const matchValue = target.dataset.match;
-  const draggedMatchValue = el.dataset.match;
+    const matchValue = target.dataset.match;
+    const draggedMatchValue = el.dataset.match;
 
-  if (matchValue === draggedMatchValue) {
-    el.classList.add("matched_item");
-    target.appendChild(el);
-    target.classList.add("correct");
-    setTimeout(() => target.classList.remove("correct"), 1000);
-  } else {
-    source.appendChild(el);
-    target.classList.add("incorrect");
-    setTimeout(() => target.classList.remove("incorrect"), 1000);
-  }
-});
+    if (matchValue === draggedMatchValue) {
+      el.classList.add("matched_item");
+      target.appendChild(el);
+      target.classList.add("correct");
+      setTimeout(() => target.classList.remove("correct"), 1000);
+    } else {
+      source.appendChild(el);
+      target.classList.add("incorrect");
+      setTimeout(() => target.classList.remove("incorrect"), 1000);
+    }
+  });
+};
 
-const path = document.querySelector("#path");
-const pathLength = path.getTotalLength();
+const timelineAnimation = () => {
+  const path = document.querySelector("#path");
+  const pathLength = path.getTotalLength();
 
-gsap.set(path, { strokeDasharray: pathLength, strokeDashoffset: pathLength });
+  gsap.set(path, { strokeDasharray: pathLength, strokeDashoffset: pathLength });
 
-gsap.to(path, {
-  strokeDashoffset: 0,
-  scrollTrigger: {
-    trigger: ".timeline",
-    start: "top top",
-    end: `+=${pathLength}px`,
-    scrub: true,
-    markers: false,
-  },
-  ease: "none",
-});
+  gsap.to(path, {
+    strokeDashoffset: 0,
+    scrollTrigger: {
+      trigger: ".timeline",
+      start: "top top",
+      end: `+=${pathLength}px`,
+      scrub: true,
+      markers: false,
+    },
+    ease: "none",
+  });
 
-const timelineItems = document.querySelectorAll(".timeline__item");
+  const timelineItems = document.querySelectorAll(".timeline__item");
 
-timelineItems.forEach((item) => {
-  const text = item.querySelector(".timeline__content");
-  const image = item.querySelector(".timeline__media");
-  const dataElement = item.querySelector(".data");
+  timelineItems.forEach((item) => {
+    const text = item.querySelector(".timeline__content");
+    const image = item.querySelector(".timeline__media");
+    const dataElement = item.querySelector(".data");
 
-  if (dataElement) {
+    if (dataElement) {
+      gsap.fromTo(
+        dataElement,
+        { textContent: 0 },
+        {
+          textContent: 25000,
+          duration: 4,
+          ease: "power1.inOut",
+          snap: { textContent: 1 },
+          scrollTrigger: {
+            trigger: item,
+            start: "top 80%",
+            end: "bottom 60%",
+            toggleActions: "play none play reverse",
+          },
+          onUpdate: function () {
+            dataElement.textContent = Math.floor(
+              dataElement.textContent
+            ).toLocaleString();
+          },
+        }
+      );
+    }
+
     gsap.fromTo(
-      dataElement,
-      { textContent: 0 },
+      text,
+      { opacity: 0, y: "2rem" },
       {
-        textContent: 25000,
-        duration: 4,
-        ease: "power1.inOut",
-        snap: { textContent: 1 },
+        opacity: 1,
+        y: "0",
+        duration: 1,
         scrollTrigger: {
           trigger: item,
           start: "top 80%",
           end: "bottom 60%",
-          toggleActions: "play none play reverse",
-        },
-        onUpdate: function () {
-          dataElement.textContent = Math.floor(
-            dataElement.textContent
-          ).toLocaleString();
+          scrub: true,
         },
       }
     );
-  }
+
+    gsap.fromTo(
+      image,
+      { opacity: 0, y: "2.5rem" },
+      {
+        opacity: 1,
+        y: "0",
+        duration: 1,
+        scrollTrigger: {
+          trigger: item,
+          start: "top 80%",
+          end: "bottom 60%",
+          scrub: true,
+        },
+      }
+    );
+  });
+
+  gsap.matchMedia().add({
+    "(min-width: 45rem)": function () {
+      timelineItems.forEach((item) => {
+        const text = item.querySelector(".timeline__content");
+        const image = item.querySelector(".timeline__media");
+
+        gsap.fromTo(
+          text,
+          { y: "4rem" },
+          {
+            y: "0",
+            scrollTrigger: {
+              trigger: item,
+              start: "top 80%",
+              end: "bottom 60%",
+              scrub: true,
+            },
+          }
+        );
+
+        gsap.fromTo(
+          image,
+          { opacity: 0, y: "5rem" },
+          {
+            opacity: 1,
+            y: "0",
+            duration: 1,
+            scrollTrigger: {
+              trigger: item,
+              start: "top 80%",
+              end: "bottom 60%",
+              scrub: true,
+            },
+          }
+        );
+      });
+    },
+  });
+};
+
+const smallAnimations = () => {
+  gsap.set(".section-plantin__image--two", {
+    rotate: -211,
+  });
+
+  gsap.to(".section-plantin__image--two", {
+    top: "20rem",
+    rotate: -157,
+    scrollTrigger: {
+      trigger: ".section-plantin",
+      start: "top top",
+      end: "bottom top",
+      toggleActions: "play none reverse restart",
+    },
+  });
 
   gsap.fromTo(
-    text,
-    { opacity: 0, y: "2rem" },
+    ".section-book__image--hand-one",
+    { x: "-10vw" },
     {
-      opacity: 1,
-      y: "0",
-      duration: 1,
+      x: "2rem",
+
       scrollTrigger: {
-        trigger: item,
-        start: "top 80%",
-        end: "bottom 60%",
+        trigger: ".section-book",
+        start: "top top",
+        end: "+=1000",
+        toggleActions: "play none reverse restart",
+
         scrub: true,
       },
     }
   );
 
   gsap.fromTo(
-    image,
-    { opacity: 0, y: "2.5rem" },
+    ".section-book__image--hand-two",
+    { x: "10vw" },
     {
-      opacity: 1,
-      y: "0",
-      duration: 1,
+      x: "-2rem",
       scrollTrigger: {
-        trigger: item,
-        start: "top 80%",
-        end: "bottom 60%",
+        trigger: ".section-book",
+        start: "top top",
+        end: "+=1000",
+        toggleActions: "play none reverse restart",
+
         scrub: true,
       },
     }
   );
-});
 
-gsap.matchMedia().add({
-  "(min-width: 45rem)": function () {
-    timelineItems.forEach((item) => {
-      const text = item.querySelector(".timeline__content");
-      const image = item.querySelector(".timeline__media");
-
-      gsap.fromTo(
-        text,
-        { y: "4rem" },
-        {
-          y: "0",
-          scrollTrigger: {
-            trigger: item,
-            start: "top 80%",
-            end: "bottom 60%",
-            scrub: true,
-          },
-        }
-      );
-
-      gsap.fromTo(
-        image,
-        { opacity: 0, y: "5rem" },
-        {
-          opacity: 1,
-          y: "0",
-          duration: 1,
-          scrollTrigger: {
-            trigger: item,
-            start: "top 80%",
-            end: "bottom 60%",
-            scrub: true,
-          },
-        }
-      );
-    });
-  },
-});
-
-gsap.set(".section-plantin__image--two", {
-  rotate: -211,
-});
-
-gsap.to(".section-plantin__image--two", {
-  top: "20rem",
-  rotate: -157,
-  scrollTrigger: {
-    trigger: ".section-plantin",
-    start: "top top",
-    end: "bottom top",
-    toggleActions: "play none reverse restart",
-  },
-});
-
-gsap.fromTo(
-  ".section-book__image--hand-one",
-  { x: "-10vw" },
-  {
-    x: "2rem",
-
+  gsap.to(".horizontal-scroll__image--moretus", {
+    x: "0rem",
     scrollTrigger: {
-      trigger: ".section-book",
+      trigger: ".horizontal-scroll__content",
       start: "top top",
-      end: "+=1000",
       toggleActions: "play none reverse restart",
-
-      scrub: true,
     },
-  }
-);
+  });
 
-gsap.fromTo(
-  ".section-book__image--hand-two",
-  { x: "10vw" },
-  {
-    x: "-2rem",
+  gsap.to(".museum-visit__image-file", {
+    x: "0",
     scrollTrigger: {
-      trigger: ".section-book",
+      trigger: ".museum-visit",
       start: "top top",
-      end: "+=1000",
       toggleActions: "play none reverse restart",
-
-      scrub: true,
     },
+  });
+};
+
+const insideBookFunctionality = () => {
+  const arialingDiv = document.querySelector(".arialing");
+  const garamondDiv = document.querySelector(".garamond");
+  let feedback_for_font = document.querySelector(".feedback_for_font");
+
+  if (arialingDiv) {
   }
-);
-
-gsap.to(".horizontal-scroll__image--moretus", {
-  x: "0rem",
-  scrollTrigger: {
-    trigger: ".horizontal-scroll__content",
-    start: "top top",
-    toggleActions: "play none reverse restart",
-  },
-});
-
-gsap.to(".museum-visit__image-file", {
-  x: "0",
-  scrollTrigger: {
-    trigger: ".museum-visit",
-    start: "top top",
-    toggleActions: "play none reverse restart",
-  },
-});
-
-const arialingDiv = document.querySelector(".arialing");
-const garamondDiv = document.querySelector(".garamond");
-let feedback_for_font = document.querySelector(".feedback_for_font");
-
-if (arialingDiv) {
-}
-arialingDiv.addEventListener("click", (event) => {
-  arialingDiv.classList.add("arial_div_click_color");
-  garamondDiv.classList.remove("arial_div_click_color");
-  event.stopPropagation();
-  feedback_for_font.textContent =
-    "You chose Arial! 67% of users prefer this modern typeface for its clean look.";
-});
-
-if (garamondDiv) {
-  garamondDiv.addEventListener("click", (event) => {
-    arialingDiv.classList.remove("arial_div_click_color");
-    garamondDiv.classList.add("arial_div_click_color");
+  arialingDiv.addEventListener("click", (event) => {
+    arialingDiv.classList.add("arial_div_click_color");
+    garamondDiv.classList.remove("arial_div_click_color");
     event.stopPropagation();
     feedback_for_font.textContent =
-      "You chose Garamond! 33% of users also prefer this elegant typeface for its timeless design.";
+      "You chose Arial! 67% of users prefer this modern typeface for its clean look.";
   });
-}
 
-const prevBtn = document.querySelector("#prev-btn");
-const nextBtn = document.querySelector("#next-btn");
-const book = document.querySelector("#book");
-
-const paper1 = document.querySelector("#p1");
-const paper2 = document.querySelector("#p2");
-
-// prevBtn.addEventListener("click", goPrevPage);
-// nextBtn.addEventListener("click", goNextPage);
-
-let currentLocation = 1;
-let numOfPapers = 2;
-let maxLocation = numOfPapers;
+  if (garamondDiv) {
+    garamondDiv.addEventListener("click", (event) => {
+      arialingDiv.classList.remove("arial_div_click_color");
+      garamondDiv.classList.add("arial_div_click_color");
+      event.stopPropagation();
+      feedback_for_font.textContent =
+        "You chose Garamond! 33% of users also prefer this elegant typeface for its timeless design.";
+    });
+  }
+};
 
 const openBook = () => {
   book.style.transformOrigin = "center";
@@ -517,60 +492,6 @@ const goPrevPage = () => {
     currentLocation--;
   }
 };
-
-prevBtn.addEventListener("click", goPrevPage);
-nextBtn.addEventListener("click", goNextPage);
-
-// const init = () => {
-//   const $nav = document.querySelector(".nav");
-//   const $navButton = document.querySelector(".nav__button");
-//   const $navList = document.querySelector(".nav__list");
-//   const $iconLink = document.querySelector("#iconlink");
-//   const listItems = $navList.querySelectorAll("li a");
-//   const closing__button = document.querySelector(".closing__button");
-
-//   $navButton.classList.remove("hidden");
-
-//   const openNavigation = () => {
-//     $navButton.setAttribute("aria-expanded", "true");
-
-//     $navList.classList.add("abc");
-//   };
-
-//   const closeNavigation = () => {
-//     $navButton.setAttribute("aria-expanded", "false");
-
-//     $navList.classList.remove("abc");
-//   };
-
-//   const toggleNavigation = () => {
-//     const open = $navButton.getAttribute("aria-expanded");
-//     open === "false" ? openNavigation() : closeNavigation();
-//   };
-
-//   closing__button.addEventListener("click", () => {
-//     $navList.classList.remove("abc");
-//   });
-
-//   const handleBlur = () => {
-
-//     closeNavigation();
-
-//   };
-
-//   $navButton.addEventListener("click", toggleNavigation);
-
-//   listItems[listItems.length - 1].addEventListener("blur", handleBlur);
-
-//   window.addEventListener("keyup", (e) => {
-//     if (e.key === "Escape") {
-//       $navButton.focus();
-//       closeNavigation();
-//     }
-//   });
-// };
-
-// Moved functions outside init
 
 const openNavigation = ($navButton, $navList) => {
   $navButton.setAttribute("aria-expanded", "true");
@@ -624,6 +545,13 @@ const init = () => {
   setupPanelPinning();
   tryAgainButton();
   addDragListeners();
+  dragAndDrop();
+  timelineAnimation();
+  smallAnimations();
+  insideBookFunctionality();
+  prevBtn.addEventListener("click", goPrevPage);
+  nextBtn.addEventListener("click", goNextPage);
+  plantinComing();
 };
 
 init();
