@@ -331,7 +331,7 @@ body {
 
 .workshop{
   padding-block-start: 2rem;
-  background-image: url('../assets/background.png');
+  background-image: url('../assets/background.webp');
   background-size: cover; 
   background-position: center;
   background-repeat: no-repeat;
@@ -542,7 +542,7 @@ body {
 .timeline{
   padding-block-start: 8rem;
   background-image: 
-  url('../assets/background.png');
+  url('../assets/background.webp');
   background-size: cover; 
   background-position: center; 
   background-repeat: no-repeat;
@@ -742,7 +742,7 @@ border: 1px solid black;
 }
 .section-plantin{
   background-image: 
-  url('../assets/background.png');
+  url('../assets/background.webp');
   background-size: cover; 
   background-position: center; 
   background-repeat: no-repeat;
@@ -858,7 +858,7 @@ border: 1px solid black;
 .section-book{
   padding-block-start: 2rem;
   background-image: 
-  url('../assets/background.png');
+  url('../assets/background.webp');
   background-size: cover; 
   background-position: center; 
   background-repeat: no-repeat;
@@ -869,7 +869,7 @@ border: 1px solid black;
 
 .spacer{
   background-image: 
-  url('../assets/background.png');
+  url('../assets/background.webp');
   background-size: cover; 
   background-position: center; 
   background-repeat: no-repeat;
@@ -915,7 +915,7 @@ border: 1px solid black;
 
 .legacy-section{
   padding-block-start: 2rem;
-    background-image: url(/src/assets/background.png);
+    background-image: url(/src/assets/background.webp);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -1234,7 +1234,7 @@ border: 1px solid black;
 
 .footer{
   background-image: 
-  url('../assets/background.png');
+  url('../assets/background.webp');
   background-size: cover; 
   background-position: center; 
   background-repeat: no-repeat;
