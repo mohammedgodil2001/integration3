@@ -111,7 +111,7 @@ const addDragListeners = () => {
   stamp.addEventListener("touchmove", (e) => {
     e.preventDefault();
     stamp.style.position = "absolute";
-
+    document.querySelector(".instruction").style.opacity = 0;
     if (eight_one.matches) {
       stamp.style.right = "0";
       stamp.style.top = "3rem";
@@ -142,6 +142,7 @@ const addDragListeners = () => {
   stamp.addEventListener("touchend", () => {
     animateStampOnPaper();
     document.querySelector(".hand_pointing").style.display = "none";
+    // document.querySelector(".instruction").style.opacity = 0;
   });
 
   stamp.addEventListener("mousedown", (e) => {
@@ -153,6 +154,7 @@ const addDragListeners = () => {
 
   document.addEventListener("mouseup", () => {
     if (Dragging) {
+      document.querySelector(".instruction").style.opacity = 0;
       animateStampOnPaper();
       Dragging = false;
     }
@@ -190,6 +192,7 @@ const tryAgainButton = () => {
     normal_paper.style.paddingTop = "";
     Dragging = false;
     document.querySelector(".hand_pointing").style.display = "block";
+    document.querySelector(".instruction").style.opacity = 1;
   });
 };
 
