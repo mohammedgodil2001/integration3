@@ -221,7 +221,7 @@ body {
     background-color: var(--color-muted);
     position: relative;
     z-index: -100;
-    background-image: url('../assets/streets_of_antwerp.png');
+    background-image: url('../assets/streets_of_antwerp.webp');
     background-size: contain; 
     background-position: center bottom;
     background-repeat: no-repeat;
@@ -1078,7 +1078,7 @@ border: 1px solid black;
   left: 0;
   transform-origin: left;
   transition: transform 0.5s;
-  background: url('../assets/book_cover.png');
+  background: url('../assets/book_cover.webp');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
