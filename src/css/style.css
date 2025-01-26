@@ -928,7 +928,7 @@ border: 1px solid black;
   position: relative;
 }
 
-.candle_images::before {
+/* .candle_images::before {
   content: ""; 
   position: absolute; 
   top: 1px; 
@@ -954,7 +954,7 @@ border: 1px solid black;
   background-size: contain; 
   background-repeat: no-repeat; 
   pointer-events: none; 
-}
+} */
 
 .legacy-section__image{
   width: 100%;
