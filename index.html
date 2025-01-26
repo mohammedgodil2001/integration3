@@ -8,11 +8,18 @@
     <!-- <link rel="stylesheet" href="https://use.typekit.net/hws5zbi.css">
     <link rel="stylesheet" href="https://use.typekit.net/fuk5xai.css"> -->
 
-    <link rel="preload" href="https://use.typekit.net/hws5zbi.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+   <!-- Preload the main TypeKit CSS -->
+<link rel="preload" href="https://use.typekit.net/hws5zbi.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <link rel="preload" href="https://use.typekit.net/fuk5xai.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<!-- Preload dynamically generated TypeKit CSS -->
+<link rel="preload" href="https://p.typekit.net/p.css?s=1&k=fuk5xai&ht=tk&f=6771&a=169291405&app=typekit&e=css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<!-- Fallback for users without JavaScript -->
 <noscript>
   <link rel="stylesheet" href="https://use.typekit.net/hws5zbi.css">
   <link rel="stylesheet" href="https://use.typekit.net/fuk5xai.css">
+  <link rel="stylesheet" href="https://p.typekit.net/p.css?s=1&k=fuk5xai&ht=tk&f=6771&a=169291405&app=typekit&e=css">
 </noscript>
 
     <link rel="stylesheet" href="https://unpkg.com/stpageflip/dist/css/flip.min.css">
